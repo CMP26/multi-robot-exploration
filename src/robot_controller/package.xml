@@ -31,6 +31,9 @@
   <!-- The *depend tags are used to specify dependencies -->
   <!-- Dependencies can be catkin packages or system dependencies -->
   <!-- Examples: -->
+  <depend>nav_msgs</depend>
+  <depend>multi_robot_msgs</depend>
+  <exec_depend>message_runtime</exec_depend>
   <!-- Use depend as a shortcut for packages that are both build and exec dependencies -->
   <!--   <depend>roscpp</depend> -->
   <!--   Note that this is equivalent to the following: -->

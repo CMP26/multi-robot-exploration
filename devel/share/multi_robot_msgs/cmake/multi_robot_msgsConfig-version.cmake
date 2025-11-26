@@ -1,0 +1,1 @@
+/root/ros_ws/multi-robot-exploration_ws/devel/.private/multi_robot_msgs/share/multi_robot_msgs/cmake/multi_robot_msgsConfig-version.cmake

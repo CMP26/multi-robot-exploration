@@ -1,0 +1,1 @@
+/root/ros_ws/multi-robot-exploration_ws/devel/.private/astra_camera/share/astra_camera/cmake/astra_cameraConfig.cmake

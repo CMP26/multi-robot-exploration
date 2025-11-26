@@ -1,0 +1,1 @@
+/root/ros_ws/multi-robot-exploration_ws/devel/.private/navigation_stack/lib/pkgconfig/navigation_stack.pc

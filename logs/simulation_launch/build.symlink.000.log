@@ -1,0 +1,3 @@
+Symlinking /root/ros_ws/multi-robot-exploration_ws/devel/lib/pkgconfig/simulation_launch.pc
+Symlinking /root/ros_ws/multi-robot-exploration_ws/devel/share/simulation_launch/cmake/simulation_launchConfig-version.cmake
+Symlinking /root/ros_ws/multi-robot-exploration_ws/devel/share/simulation_launch/cmake/simulation_launchConfig.cmake

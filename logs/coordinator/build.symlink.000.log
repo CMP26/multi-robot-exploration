@@ -1,0 +1,3 @@
+Symlinking /root/ros_ws/multi-robot-exploration_ws/devel/lib/pkgconfig/coordinator.pc
+Symlinking /root/ros_ws/multi-robot-exploration_ws/devel/share/coordinator/cmake/coordinatorConfig.cmake
+Symlinking /root/ros_ws/multi-robot-exploration_ws/devel/share/coordinator/cmake/coordinatorConfig-version.cmake

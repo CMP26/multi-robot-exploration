@@ -10,7 +10,10 @@ project(coordinator)
 find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
   rospy
+  sensor_msgs
   std_msgs
+  multi_robot_msgs
+  nav_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -107,6 +110,7 @@ catkin_package(
 #  LIBRARIES coordinator
 #  CATKIN_DEPENDS geometry_msgs rospy std_msgs
 #  DEPENDS system_lib
+CATKIN_DEPENDS multi_robot_msgs geometry_msgs rospy sensor_msgs std_msgs nav_msgs
 )
 
 ###########

@@ -1,0 +1,1 @@
+/root/ros_ws/multi-robot-exploration_ws/devel/.private/limo_base/share/common-lisp/ros/limo_base/msg/_package.lisp

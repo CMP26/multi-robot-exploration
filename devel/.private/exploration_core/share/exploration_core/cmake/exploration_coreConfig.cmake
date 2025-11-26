@@ -187,7 +187,7 @@ foreach(t ${exploration_core_EXPORTED_TARGETS})
   endif()
 endforeach()
 
-set(depends "")
+set(depends "multi_robot_msgs;geometry_msgs;nav_msgs;roscpp;rospy;sensor_msgs;std_msgs")
 foreach(depend ${depends})
   string(REPLACE " " ";" depend_list ${depend})
   # the package name of the dependency must be kept in a unique variable so that it is not overwritten in recursive calls

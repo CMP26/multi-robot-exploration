@@ -1,0 +1,1 @@
+/root/ros_ws/multi-robot-exploration_ws/devel/.private/astra_camera/share/common-lisp/ros/astra_camera/srv/_package_GetCameraParams.lisp

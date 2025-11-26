@@ -1,0 +1,1 @@
+/root/ros_ws/multi-robot-exploration_ws/devel/.private/coordinator/share/coordinator/cmake/coordinatorConfig-version.cmake

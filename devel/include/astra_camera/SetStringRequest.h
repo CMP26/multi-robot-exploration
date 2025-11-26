@@ -1,0 +1,1 @@
+/root/ros_ws/multi-robot-exploration_ws/devel/.private/astra_camera/include/astra_camera/SetStringRequest.h

@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /root/ros_ws/multi-robot-exploration_ws/devel/.private/astra_camera/setup.sh

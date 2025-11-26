@@ -1,0 +1,1 @@
+/root/ros_ws/multi-robot-exploration_ws/devel/.private/robot_controller/lib/pkgconfig/robot_controller.pc

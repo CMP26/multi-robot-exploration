@@ -1,0 +1,110 @@
+[  0%] Built target actionlib_generate_messages_nodejs
+[  0%] Built target sensor_msgs_generate_messages_cpp
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target _astra_camera_generate_messages_check_deps_GetCameraParams
+[  0%] Built target _astra_camera_generate_messages_check_deps_GetDouble
+[  0%] Built target _astra_camera_generate_messages_check_deps_Metadata
+[  0%] Built target _astra_camera_generate_messages_check_deps_GetBool
+[  0%] Built target _astra_camera_generate_messages_check_deps_Extrinsics
+[  0%] Built target _astra_camera_generate_messages_check_deps_SetInt32
+[  0%] Built target _astra_camera_generate_messages_check_deps_GetCameraInfo
+[  0%] Built target _astra_camera_generate_messages_check_deps_GetString
+[  0%] Built target _astra_camera_generate_messages_check_deps_GetDeviceInfo
+[  0%] Built target std_srvs_generate_messages_lisp
+[  0%] Built target geometry_msgs_generate_messages_eus
+[  0%] Built target dynamic_reconfigure_gencfg
+[  0%] Built target std_msgs_generate_messages_nodejs
+[  0%] Built target geometry_msgs_generate_messages_lisp
+[  0%] Built target roscpp_generate_messages_eus
+[  0%] Built target dynamic_reconfigure_generate_messages_lisp
+[  0%] Built target std_msgs_generate_messages_lisp
+[  0%] Built target _astra_camera_generate_messages_check_deps_SetString
+[  0%] Built target _astra_camera_generate_messages_check_deps_GetInt32
+[  0%] Built target tf2_msgs_generate_messages_cpp
+[  0%] Built target _astra_camera_generate_messages_check_deps_DeviceInfo
+[  0%] Built target actionlib_generate_messages_lisp
+[  0%] Built target roscpp_generate_messages_lisp
+[  1%] [34m[1mGenerating dynamic reconfigure files from cfg/Astra.cfg: /root/ros_ws/multi-robot-exploration_ws/devel/.private/astra_camera/include/astra_camera/AstraConfig.h /root/ros_ws/multi-robot-exploration_ws/devel/.private/astra_camera/lib/python3/dist-packages/astra_camera/cfg/AstraConfig.py[0m
+[  1%] Built target tf2_msgs_generate_messages_eus
+[  1%] Built target geometry_msgs_generate_messages_py
+[  1%] Built target roscpp_generate_messages_cpp
+[  1%] Built target sensor_msgs_generate_messages_nodejs
+[  1%] Built target sensor_msgs_generate_messages_eus
+[  1%] Built target sensor_msgs_generate_messages_lisp
+[  1%] Built target sensor_msgs_generate_messages_py
+[  1%] Built target std_srvs_generate_messages_cpp
+[  1%] Built target std_srvs_generate_messages_nodejs
+[  1%] Built target rosgraph_msgs_generate_messages_lisp
+[  1%] Built target dynamic_reconfigure_generate_messages_py
+[  1%] Built target std_msgs_generate_messages_py
+[  1%] Built target actionlib_msgs_generate_messages_eus
+[  1%] Built target rosgraph_msgs_generate_messages_py
+[  1%] Built target dynamic_reconfigure_generate_messages_cpp
+[  1%] Built target geometry_msgs_generate_messages_nodejs
+[  1%] Built target dynamic_reconfigure_generate_messages_eus
+[  1%] Built target geometry_msgs_generate_messages_cpp
+[  1%] Built target dynamic_reconfigure_generate_messages_nodejs
+[  1%] Built target tf2_msgs_generate_messages_py
+[  1%] Built target roscpp_generate_messages_nodejs
+[  1%] Built target rosgraph_msgs_generate_messages_nodejs
+[  1%] Built target rosgraph_msgs_generate_messages_eus
+[  1%] Built target roscpp_generate_messages_py
+[  1%] Built target std_srvs_generate_messages_py
+[  1%] Built target actionlib_msgs_generate_messages_py
+[  1%] Built target actionlib_generate_messages_cpp
+[  1%] Built target std_srvs_generate_messages_eus
+[  1%] Built target tf2_msgs_generate_messages_lisp
+[  1%] Built target tf2_msgs_generate_messages_nodejs
+[  1%] Built target actionlib_msgs_generate_messages_cpp
+[  1%] Built target actionlib_generate_messages_eus
+[  1%] Built target std_msgs_generate_messages_eus
+[  1%] Built target rosgraph_msgs_generate_messages_cpp
+[  1%] Built target actionlib_msgs_generate_messages_nodejs
+[  1%] Built target actionlib_msgs_generate_messages_lisp
+[  1%] Built target actionlib_generate_messages_py
+[ 24%] Built target astra_camera_generate_messages_cpp
+[ 34%] Built target astra_camera_generate_messages_py
+[ 49%] Built target astra_camera_generate_messages_nodejs
+[ 64%] Built target astra_camera_generate_messages_lisp
+[ 81%] Built target astra_camera_generate_messages_eus
+[ 81%] Built target astra_camera_generate_messages
+Generating reconfiguration files for Astra in astra_camera
+Wrote header file in /root/ros_ws/multi-robot-exploration_ws/devel/.private/astra_camera/include/astra_camera/AstraConfig.h
+[ 81%] Built target astra_camera_gencfg
+[35m[1mScanning dependencies of target astra_camera[0m
+[ 84%] [32mBuilding CXX object CMakeFiles/astra_camera.dir/src/ob_camera_info.cpp.o[0m
+[ 84%] [32mBuilding CXX object CMakeFiles/astra_camera.dir/src/ob_camera_node_factory.cpp.o[0m
+[ 84%] [32mBuilding CXX object CMakeFiles/astra_camera.dir/src/ob_camera_node.cpp.o[0m
+[ 86%] [32mBuilding CXX object CMakeFiles/astra_camera.dir/src/ros_service.cpp.o[0m
+In file included from [01m[K/root/ros_ws/multi-robot-exploration_ws/src/ros_astra_camera/include/astra_camera/ob_camera_node.h:43[m[K,
+                 from [01m[K/root/ros_ws/multi-robot-exploration_ws/src/ros_astra_camera/include/astra_camera/ob_camera_node_factory.h:26[m[K,
+                 from [01m[K/root/ros_ws/multi-robot-exploration_ws/src/ros_astra_camera/src/ob_camera_node_factory.cpp:13[m[K:
+[01m[K/root/ros_ws/multi-robot-exploration_ws/src/ros_astra_camera/include/astra_camera/uvc_camera_driver.h:17:10:[m[K [01;31m[Kfatal error: [m[Klibuvc/libuvc.h: No such file or directory
+   17 | #include [01;31m[K<libuvc/libuvc.h>[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+In file included from [01m[K/root/ros_ws/multi-robot-exploration_ws/src/ros_astra_camera/include/astra_camera/ob_camera_node.h:43[m[K,
+                 from [01m[K/root/ros_ws/multi-robot-exploration_ws/src/ros_astra_camera/src/ros_service.cpp:12[m[K:
+[01m[K/root/ros_ws/multi-robot-exploration_ws/src/ros_astra_camera/include/astra_camera/uvc_camera_driver.h:17:10:[m[K [01;31m[Kfatal error: [m[Klibuvc/libuvc.h: No such file or directory
+   17 | #include [01;31m[K<libuvc/libuvc.h>[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+make[2]: *** [CMakeFiles/astra_camera.dir/build.make:128: CMakeFiles/astra_camera.dir/src/ob_camera_node_factory.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[2]: *** [CMakeFiles/astra_camera.dir/build.make:154: CMakeFiles/astra_camera.dir/src/ros_service.cpp.o] Error 1
+In file included from [01m[K/root/ros_ws/multi-robot-exploration_ws/src/ros_astra_camera/include/astra_camera/ob_camera_node.h:43[m[K,
+                 from [01m[K/root/ros_ws/multi-robot-exploration_ws/src/ros_astra_camera/src/ob_camera_info.cpp:12[m[K:
+[01m[K/root/ros_ws/multi-robot-exploration_ws/src/ros_astra_camera/include/astra_camera/uvc_camera_driver.h:17:10:[m[K [01;31m[Kfatal error: [m[Klibuvc/libuvc.h: No such file or directory
+   17 | #include [01;31m[K<libuvc/libuvc.h>[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+make[2]: *** [CMakeFiles/astra_camera.dir/build.make:115: CMakeFiles/astra_camera.dir/src/ob_camera_info.cpp.o] Error 1
+In file included from [01m[K/root/ros_ws/multi-robot-exploration_ws/src/ros_astra_camera/include/astra_camera/ob_camera_node.h:43[m[K,
+                 from [01m[K/root/ros_ws/multi-robot-exploration_ws/src/ros_astra_camera/src/ob_camera_node.cpp:13[m[K:
+[01m[K/root/ros_ws/multi-robot-exploration_ws/src/ros_astra_camera/include/astra_camera/uvc_camera_driver.h:17:10:[m[K [01;31m[Kfatal error: [m[Klibuvc/libuvc.h: No such file or directory
+   17 | #include [01;31m[K<libuvc/libuvc.h>[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+make[2]: *** [CMakeFiles/astra_camera.dir/build.make:141: CMakeFiles/astra_camera.dir/src/ob_camera_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:300: CMakeFiles/astra_camera.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

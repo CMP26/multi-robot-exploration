@@ -1,0 +1,3 @@
+Symlinking /root/ros_ws/multi-robot-exploration_ws/devel/lib/pkgconfig/multi_robot_msgs.pc
+Symlinking /root/ros_ws/multi-robot-exploration_ws/devel/share/multi_robot_msgs/cmake/multi_robot_msgsConfig.cmake
+Symlinking /root/ros_ws/multi-robot-exploration_ws/devel/share/multi_robot_msgs/cmake/multi_robot_msgsConfig-version.cmake
