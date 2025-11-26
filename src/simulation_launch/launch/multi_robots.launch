@@ -1,0 +1,15 @@
+<launch>
+  <!-- Start coordinator -->
+  <node pkg="coordinator" type="coordinator.py" name="coordinator" output="screen"/>
+
+  <!-- exploration core publishes goals in root namespace -->
+  <node pkg="exploration_core" type="explore_node.py" name="explore_node" output="screen"/>
+
+  <!-- Two robot namespaces -->
+  <include file="$(find simulation_launch)/launch/single_robot.launch">
+    <arg name="robot_ns" value="robot1"/>
+  </include>
+  <include file="$(find simulation_launch)/launch/single_robot.launch">
+    <arg name="robot_ns" value="robot2"/>
+  </include>
+</launch>

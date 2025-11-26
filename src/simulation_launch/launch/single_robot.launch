@@ -1,0 +1,9 @@
+<launch>
+  <arg name="robot_ns" default="robot1"/>
+  <!-- remap topics into namespace -->
+  <group ns="$(arg robot_ns)">
+    <!-- example: start robot_controller in namespace -->
+    <node pkg="robot_controller" type="robot_controller.py" name="robot_controller" output="screen"/>
+    <!-- you would also start robot-specific nodes here (driver, odom, tf) -->
+  </group>
+</launch>

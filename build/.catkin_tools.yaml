@@ -1,0 +1,6 @@
+devel_space: /root/ros_ws/multi-robot-exploration_ws/devel
+install: false
+install_space: /root/ros_ws/multi-robot-exploration_ws/install
+profile: default
+source_space: /root/ros_ws/multi-robot-exploration_ws/src
+workspace: /root/ros_ws/multi-robot-exploration_ws
