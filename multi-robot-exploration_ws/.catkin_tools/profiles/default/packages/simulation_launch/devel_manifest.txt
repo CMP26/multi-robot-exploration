@@ -1,0 +1,4 @@
+simulation_launch
+/root/ros_ws/multi-robot-exploration_ws/devel/.private/simulation_launch/lib/pkgconfig/simulation_launch.pc /root/ros_ws/multi-robot-exploration_ws/devel/lib/pkgconfig/simulation_launch.pc
+/root/ros_ws/multi-robot-exploration_ws/devel/.private/simulation_launch/share/simulation_launch/cmake/simulation_launchConfig-version.cmake /root/ros_ws/multi-robot-exploration_ws/devel/share/simulation_launch/cmake/simulation_launchConfig-version.cmake
+/root/ros_ws/multi-robot-exploration_ws/devel/.private/simulation_launch/share/simulation_launch/cmake/simulation_launchConfig.cmake /root/ros_ws/multi-robot-exploration_ws/devel/share/simulation_launch/cmake/simulation_launchConfig.cmake

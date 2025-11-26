@@ -1,0 +1,8 @@
+prefix=/root/ros_ws/multi-robot-exploration_ws/devel/.private/robot_controller
+
+Name: robot_controller
+Description: Description of robot_controller
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: multi_robot_msgs geometry_msgs rospy sensor_msgs std_msgs nav_msgs

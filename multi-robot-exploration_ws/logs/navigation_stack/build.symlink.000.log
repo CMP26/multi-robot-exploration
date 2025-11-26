@@ -1,0 +1,3 @@
+Symlinking /root/ros_ws/multi-robot-exploration_ws/devel/lib/pkgconfig/navigation_stack.pc
+Symlinking /root/ros_ws/multi-robot-exploration_ws/devel/share/navigation_stack/cmake/navigation_stackConfig.cmake
+Symlinking /root/ros_ws/multi-robot-exploration_ws/devel/share/navigation_stack/cmake/navigation_stackConfig-version.cmake

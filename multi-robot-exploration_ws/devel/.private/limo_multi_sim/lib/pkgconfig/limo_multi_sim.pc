@@ -1,0 +1,8 @@
+prefix=/root/ros_ws/multi-robot-exploration_ws/devel/.private/limo_multi_sim
+
+Name: limo_multi_sim
+Description: Description of limo_multi_sim
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

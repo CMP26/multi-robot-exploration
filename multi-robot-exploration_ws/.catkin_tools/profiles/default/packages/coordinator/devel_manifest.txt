@@ -1,0 +1,4 @@
+coordinator
+/root/ros_ws/multi-robot-exploration_ws/devel/.private/coordinator/lib/pkgconfig/coordinator.pc /root/ros_ws/multi-robot-exploration_ws/devel/lib/pkgconfig/coordinator.pc
+/root/ros_ws/multi-robot-exploration_ws/devel/.private/coordinator/share/coordinator/cmake/coordinatorConfig.cmake /root/ros_ws/multi-robot-exploration_ws/devel/share/coordinator/cmake/coordinatorConfig.cmake
+/root/ros_ws/multi-robot-exploration_ws/devel/.private/coordinator/share/coordinator/cmake/coordinatorConfig-version.cmake /root/ros_ws/multi-robot-exploration_ws/devel/share/coordinator/cmake/coordinatorConfig-version.cmake

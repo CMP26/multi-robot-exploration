@@ -1,0 +1,38 @@
+<launch>
+
+  <!-- World -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+  <arg name="world_name" value="$(find limo_multi_sim)/worlds/advanced_world.world"/>
+  </include>
+  
+  <!-- Path to LIMO model -->
+  <arg name="xacro_path" default="$(find limo_description)/urdf/limo_xacro.xacro"/>
+
+  <!-- LIMO 1 -->
+  <group ns="limo1">
+    <param name="robot_description"
+           command="$(find xacro)/xacro $(arg xacro_path) robot_name:=limo1"/>
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="rsp"/>
+    <node pkg="gazebo_ros" type="spawn_model" name="spawn_limo1"
+          args="-param robot_description -urdf -model limo1 -x 0 -y 0 -z 0.1"/>
+  </group>
+
+  <!-- LIMO 2 -->
+  <group ns="limo2">
+    <param name="robot_description"
+           command="$(find xacro)/xacro $(arg xacro_path) robot_name:=limo2"/>
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="rsp"/>
+    <node pkg="gazebo_ros" type="spawn_model" name="spawn_limo2"
+          args="-param robot_description -urdf -model limo2 -x 2 -y 0 -z 0.1"/>
+  </group>
+
+  <!-- LIMO 3 -->
+  <group ns="limo3">
+    <param name="robot_description"
+           command="$(find xacro)/xacro $(arg xacro_path) robot_name:=limo3"/>
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="rsp"/>
+    <node pkg="gazebo_ros" type="spawn_model" name="spawn_limo3"
+          args="-param robot_description -urdf -model limo3 -x -2 -y 1.5 -z 0.1"/>
+  </group>
+
+</launch>

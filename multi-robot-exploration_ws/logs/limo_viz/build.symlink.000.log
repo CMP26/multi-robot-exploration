@@ -1,0 +1,3 @@
+Symlinking /root/ros_ws/multi-robot-exploration_ws/devel/lib/pkgconfig/limo_viz.pc
+Symlinking /root/ros_ws/multi-robot-exploration_ws/devel/share/limo_viz/cmake/limo_vizConfig-version.cmake
+Symlinking /root/ros_ws/multi-robot-exploration_ws/devel/share/limo_viz/cmake/limo_vizConfig.cmake
