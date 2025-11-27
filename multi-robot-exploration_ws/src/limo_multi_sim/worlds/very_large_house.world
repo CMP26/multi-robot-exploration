@@ -1,0 +1,466 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <!-- VERY_LARGE_HOUSE: One-floor modular house with multiple rooms,
+       furniture, doors, windows, textures (wood/tile/carpet), and a hallway.
+       Assembled from modular blocks so it's easy to extend. -->
+
+  <world name="very_large_house_world">
+
+    <!-- ============================
+         Global scene & physics
+         ============================ -->
+    <gravity>0 0 -9.8</gravity>
+    <physics type="ode">
+      <max_step_size>0.001</max_step_size>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+
+    <scene>
+      <ambient>0.5 0.5 0.5 1</ambient>
+      <background>0.7 0.75 0.8 1</background>
+    </scene>
+
+    <!-- Sun & ground -->
+    <include><uri>model://sun</uri></include>
+    <include><uri>model://ground_plane</uri></include>
+
+    <!-- ============================================================
+         MATERIAL NOTES:
+         We use builtin 'Gazebo/Wood', 'Gazebo/Tile', and simple colors.
+         If you want external textures, replace the material blocks with
+         file:// paths to your texture files.
+         ============================================================ -->
+
+    <!-- ============================================================
+         MODULE: Basic wall block (reusable)
+         - Use different poses & sizes to create room geometry.
+         - By default, this is a simple solid wall (no window cutout).
+         ============================================================ -->
+    <model name="wall_module_template">
+      <static>true</static>
+      <link name="wall_link">
+        <visual name="wall_visual">
+          <geometry>
+            <box>
+              <size>4 0.15 2.5</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <collision name="wall_col">
+          <geometry><box><size>4 0.15 2.5</size></box></geometry>
+        </collision>
+      </link>
+      <pose>0 0 1.25 0 0 0</pose>
+    </model>
+
+    <!-- ============================================================
+         MODULE: Window module (glass) - placed inside walls by positioning
+         ============================================================ -->
+    <model name="window_module_template">
+      <static>true</static>
+      <link name="window_link">
+        <visual name="glass_visual">
+          <geometry><box><size>1.6 0.05 1.0</size></box></geometry>
+          <material>
+            <ambient>0.6 0.8 1 0.4</ambient>
+            <transparency>0.5</transparency>
+          </material>
+        </visual>
+        <collision name="window_col">
+          <geometry><box><size>1.6 0.05 1.0</size></box></geometry>
+        </collision>
+      </link>
+      <pose>0 0 1.2 0 0 0</pose>
+    </model>
+
+    <!-- ============================================================
+         MODULE: Door frame (static) - put between walls for openings
+         ============================================================ -->
+    <model name="door_frame_template">
+      <static>true</static>
+      <link name="door_link">
+        <visual name="door_vis">
+          <geometry><box><size>1.0 0.12 2.1</size></box></geometry>
+          <material><ambient>0.55 0.35 0.2 1</ambient></material>
+        </visual>
+        <collision name="door_col"><geometry><box><size>1.0 0.12 2.1</size></box></geometry></collision>
+      </link>
+      <pose>0 0 1.05 0 0 0</pose>
+    </model>
+
+    <!-- ============================================================
+         MODULE: Table & shelf (furniture templates)
+         ============================================================ -->
+    <model name="table_template">
+      <static>true</static>
+      <link name="table_link">
+        <!-- top -->
+        <visual name="top">
+          <geometry><box><size>1.6 0.9 0.08</size></box></geometry>
+          <material><ambient>0.45 0.28 0.15 1</ambient></material>
+        </visual>
+        <collision name="top_col"><geometry><box><size>1.6 0.9 0.08</size></box></geometry></collision>
+        <!-- legs (four small visuals, collision simplified) -->
+        <visual name="leg1"><geometry><box><size>0.08 0.08 0.6</size></box></geometry></visual>
+      </link>
+      <pose>0 0 0.4 0 0 0</pose>
+    </model>
+
+    <model name="shelf_template">
+      <static>true</static>
+      <link name="shelf_link">
+        <visual name="shelf_vis"><geometry><box><size>2.0 0.3 0.12</size></box></geometry><material><ambient>0.4 0.25 0.2 1</ambient></material></visual>
+        <collision name="shelf_col"><geometry><box><size>2.0 0.3 0.12</size></box></geometry></collision>
+      </link>
+      <pose>0 0 1.3 0 0 0</pose>
+    </model>
+
+    <!-- End of Part 1 -->
+    <!-- ================================
+         ROOM: LIVING ROOM (Wood floor + carpet zone)
+         Centered at (0,0), size roughly 10x8
+         ================================ -->
+    <model name="living_room_floor">
+      <static>true</static>
+      <link name="lr_floor">
+        <visual name="lr_floor_vis">
+          <geometry><box><size>10 8 0.08</size></box></geometry>
+          <!-- Wood material for living room -->
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+          </material>
+        </visual>
+        <collision name="lr_floor_col"><geometry><box><size>10 8 0.08</size></box></geometry></collision>
+      </link>
+      <pose>0 0 0 0 0 0</pose>
+    </model>
+
+    <!-- Carpet patch in living room (decorative) -->
+    <model name="living_carpet">
+      <static>true</static>
+      <link name="carpet">
+        <visual name="carpet_vis">
+          <geometry><box><size>3.5 2.5 0.04</size></box></geometry>
+          <material><ambient>0.15 0.15 0.5 1</ambient></material>
+        </visual>
+        <collision name="carpet_col"><geometry><box><size>3.5 2.5 0.04</size></box></geometry></collision>
+      </link>
+      <pose>-1.2 0.6 0.02 0 0 0</pose>
+    </model>
+
+    <!-- Living room walls: use wall_module_template scaled via link geometry -->
+    <!-- We'll define explicit walls for clarity -->
+
+    <!-- Living room north wall -->
+    <model name="living_wall_north">
+      <static>true</static>
+      <link name="link">
+        <visual name="vis"><geometry><box><size>10 0.15 2.5</size></box></geometry></visual>
+        <collision name="col"><geometry><box><size>10 0.15 2.5</size></box></geometry></collision>
+      </link>
+      <pose>0 4 1.25 0 0 0</pose>
+    </model>
+
+    <!-- Living room south wall -->
+    <model name="living_wall_south">
+      <static>true</static>
+      <link name="link"><visual name="vis"><geometry><box><size>10 0.15 2.5</size></box></geometry></visual><collision name="col"><geometry><box><size>10 0.15 2.5</size></box></geometry></collision></link>
+      <pose>0 -4 1.25 0 0 0</pose>
+    </model>
+
+    <!-- Living room west wall -->
+    <model name="living_wall_west">
+      <static>true</static>
+      <link name="link"><visual name="vis"><geometry><box><size>0.15 8 2.5</size></box></geometry></visual><collision name="col"><geometry><box><size>0.15 8 2.5</size></box></geometry></collision></link>
+      <pose>-5 0 1.25 0 0 0</pose>
+    </model>
+
+    <!-- Living room east wall (partial, with door to hallway) -->
+    <model name="living_wall_east_partial">
+      <static>true</static>
+      <link name="link"><visual name="vis"><geometry><box><size>2.5 0.15 2.5</size></box></geometry></visual><collision name="col"><geometry><box><size>2.5 0.15 2.5</size></box></geometry></collision></link>
+      <pose>2.5 0 1.25 0 0 0</pose>
+    </model>
+
+    <!-- Door opening: place door frame to connect to hallway -->
+    <model name="living_to_hall_door">
+      <static>true</static>
+      <link name="door"><visual name="v"><geometry><box><size>1.0 0.12 2.1</size></box></geometry></visual><collision name="c"><geometry><box><size>1.0 0.12 2.1</size></box></geometry></collision></link>
+      <pose>4 0 1.05 0 0 0</pose>
+    </model>
+
+    <!-- Furniture: sofa (simple box) -->
+    <model name="sofa">
+      <static>true</static>
+      <link name="sofa_link">
+        <visual name="sofa_vis"><geometry><box><size>1.8 0.9 0.7</size></box></geometry><material><ambient>0.2 0.2 0.2 1</ambient></material></visual>
+        <collision name="sofa_col"><geometry><box><size>1.8 0.9 0.7</size></box></geometry></collision>
+      </link>
+      <pose>-2 1.0 0.35 0 0 0</pose>
+    </model>
+
+    <!-- Coffee table -->
+    <model name="coffee_table">
+      <static>true</static>
+      <link name="ct_link">
+        <visual name="ct_vis"><geometry><box><size>0.9 0.5 0.35</size></box></geometry><material><ambient>0.45 0.28 0.15 1</ambient></material></visual>
+        <collision name="ct_col"><geometry><box><size>0.9 0.5 0.35</size></box></geometry></collision>
+      </link>
+      <pose>-0.8 0.6 0.175 0 0 0</pose>
+    </model>
+
+    <!-- End of Part 2 -->
+    <!-- ================================
+         Central Hallway (connects living -> kitchen -> bedroom)
+         Positioned on +X axis from living room
+         ================================ -->
+    <model name="hallway_floor">
+      <static>true</static>
+      <link name="h_floor">
+        <visual name="h_vis"><geometry><box><size>6 2.2 0.08</size></box></geometry><material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Tile</name></script></material></visual>
+        <collision name="h_col"><geometry><box><size>6 2.2 0.08</size></box></geometry></collision>
+      </link>
+      <!-- starts at x=5 (living to hall door placed at x=4) -->
+      <pose>7 0 0 0 0 0</pose>
+    </model>
+
+    <!-- Hallway walls -->
+    <model name="hall_wall_north">
+      <static>true</static>
+      <link name="link"><visual name="vis"><geometry><box><size>6 0.12 2.5</size></box></geometry></visual><collision name="col"><geometry><box><size>6 0.12 2.5</size></box></geometry></collision></link>
+      <pose>7 1.15 1.25 0 0 0</pose>
+    </model>
+
+    <model name="hall_wall_south">
+      <static>true</static>
+      <link name="link"><visual name="vis"><geometry><box><size>6 0.12 2.5</size></box></geometry></visual><collision name="col"><geometry><box><size>6 0.12 2.5</size></box></geometry></collision></link>
+      <pose>7 -1.15 1.25 0 0 0</pose>
+    </model>
+
+    <!-- ============================================================
+         KITCHEN: tiled floor, counters, stove
+         located at x = 10 (right of hallway)
+         ============================================================ -->
+    <model name="kitchen_floor">
+      <static>true</static>
+      <link name="kf"><visual name="vis"><geometry><box><size>6 5 0.08</size></box></geometry><material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Tile</name></script></material></visual><collision name="col"><geometry><box><size>6 5 0.08</size></box></geometry></collision></link>
+      <pose>13 0 0 0 0 0</pose>
+    </model>
+
+    <!-- Kitchen counter (simple long box) -->
+    <model name="kitchen_counter">
+      <static>true</static>
+      <link name="counter">
+        <visual name="vis"><geometry><box><size>4.5 0.6 0.9</size></box></geometry><material><ambient>0.6 0.6 0.6 1</ambient></material></visual>
+        <collision name="col"><geometry><box><size>4.5 0.6 0.9</size></box></geometry></collision>
+      </link>
+      <pose>11.5 1.0 0.45 0 0 0</pose>
+    </model>
+
+    <!-- Stove -->
+    <model name="stove">
+      <static>true</static>
+      <link name="stove_link"><visual name="vis"><geometry><box><size>0.8 0.6 0.9</size></box></geometry><material><ambient>0.1 0.1 0.1 1</ambient></material></visual><collision name="col"><geometry><box><size>0.8 0.6 0.9</size></box></geometry></collision></link>
+      <pose>14 0.8 0.45 0 0 0</pose>
+    </model>
+
+    <!-- Kitchen table (small) -->
+    <model name="kitchen_table">
+      <static>true</static>
+      <link name="kt"><visual name="vis"><geometry><box><size>1.2 0.8 0.75</size></box></geometry><material><ambient>0.4 0.3 0.2 1</ambient></material></visual><collision name="col"><geometry><box><size>1.2 0.8 0.75</size></box></geometry></collision></link>
+      <pose>13.5 -1.2 0.375 0 0 0</pose>
+    </model>
+
+    <!-- Kitchen window above counter -->
+    <model name="kitchen_window">
+      <static>true</static>
+      <link name="kw">
+        <visual name="kv"><geometry><box><size>1.8 0.05 0.9</size></box></geometry><material><ambient>0.6 0.8 1 0.45</ambient></material></visual>
+        <collision name="kcol"><geometry><box><size>1.8 0.05 0.9</size></box></geometry></collision>
+      </link>
+      <pose>12.5 2.2 1.25 0 0 0</pose>
+    </model>
+
+    <!-- End of Part 3 -->
+    <!-- ============================================================
+         BEDROOM: at x = 7, y = -6 (below hallway)
+         bed, nightstand, wardrobe, carpet
+         ============================================================ -->
+    <model name="bedroom_floor">
+      <static>true</static>
+      <link name="bf"><visual name="vis"><geometry><box><size>5 4.5 0.08</size></box></geometry><material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Wood</name></script></material></visual><collision name="col"><geometry><box><size>5 4.5 0.08</size></box></geometry></collision></link>
+      <pose>7 -6 0 0 0 0</pose>
+    </model>
+
+    <!-- Bed -->
+    <model name="bed">
+      <static>true</static>
+      <link name="bed_link"><visual name="v"><geometry><box><size>1.8 2.0 0.5</size></box></geometry><material><ambient>0.7 0.2 0.2 1</ambient></material></visual><collision name="c"><geometry><box><size>1.8 2.0 0.5</size></box></geometry></collision></link>
+      <pose>6.5 -6 0.25 0 0 0</pose>
+    </model>
+
+    <!-- Nightstand -->
+    <model name="nightstand">
+      <static>true</static>
+      <link name="ns"><visual name="v"><geometry><box><size>0.5 0.4 0.5</size></box></geometry><material><ambient>0.4 0.25 0.2 1</ambient></material></visual><collision name="c"><geometry><box><size>0.5 0.4 0.5</size></box></geometry></collision></link>
+      <pose>6.1 -4.7 0.25 0 0 0</pose>
+    </model>
+
+    <!-- Wardrobe -->
+    <model name="wardrobe">
+      <static>true</static>
+      <link name="wr"><visual name="v"><geometry><box><size>1.2 0.6 1.8</size></box></geometry><material><ambient>0.45 0.3 0.2 1</ambient></material></visual><collision name="c"><geometry><box><size>1.2 0.6 1.8</size></box></geometry></collision></link>
+      <pose>8.4 -7 0.9 0 0 0</pose>
+    </model>
+
+    <!-- Bedroom window -->
+    <model name="bedroom_window">
+      <static>true</static>
+      <link name="bw"><visual name="v"><geometry><box><size>1.5 0.05 0.9</size></box></geometry><material><ambient>0.6 0.8 1 0.45</ambient></material></visual><collision name="c"><geometry><box><size>1.5 0.05 0.9</size></box></geometry></collision></link>
+      <pose>5.3 -8 1.2 0 0 0</pose>
+    </model>
+
+    <!-- ============================================================
+         OFFICE: at x = -8 (left side), has desk, chair, shelf
+         ============================================================ -->
+    <model name="office_floor">
+      <static>true</static>
+      <link name="of"><visual name="v"><geometry><box><size>5.5 4 0.08</size></box></geometry><material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Wood</name></script></material></visual><collision name="c"><geometry><box><size>5.5 4 0.08</size></box></geometry></collision></link>
+      <pose>-7 0 0 0 0 0</pose>
+    </model>
+
+    <!-- Desk -->
+    <model name="desk">
+      <static>true</static>
+      <link name="desk_link"><visual name="v"><geometry><box><size>1.6 0.7 0.75</size></box></geometry><material><ambient>0.4 0.3 0.2 1</ambient></material></visual><collision name="c"><geometry><box><size>1.6 0.7 0.75</size></box></geometry></collision></link>
+      <pose>-7.8 -1.2 0.375 0 0 0</pose>
+    </model>
+
+    <!-- Chair (simple box) -->
+    <model name="chair">
+      <static>true</static>
+      <link name="ch"><visual name="v"><geometry><box><size>0.45 0.45 0.9</size></box></geometry><material><ambient>0.25 0.25 0.25 1</ambient></material></visual><collision name="c"><geometry><box><size>0.45 0.45 0.9</size></box></geometry></collision></link>
+      <pose>-6.9 -1.2 0.45 0 0 0</pose>
+    </model>
+
+    <!-- Shelf in office -->
+    <model name="office_shelf">
+      <static>true</static>
+      <link name="os"><visual name="v"><geometry><box><size>2.0 0.35 1.2</size></box></geometry><material><ambient>0.48 0.32 0.24 1</ambient></material></visual><collision name="c"><geometry><box><size>2.0 0.35 1.2</size></box></geometry></collision></link>
+      <pose>-6.5 1.5 0.9 0 0 0</pose>
+    </model>
+
+    <!-- Office window -->
+    <model name="office_window">
+      <static>true</static>
+      <link name="ow"><visual name="v"><geometry><box><size>1.5 0.05 0.9</size></box></geometry><material><ambient>0.6 0.8 1 0.45</ambient></material></visual><collision name="c"><geometry><box><size>1.5 0.05 0.9</size></box></geometry></collision></link>
+      <pose>-8.5 2.0 1.2 0 0 0</pose>
+    </model>
+
+    <!-- End of Part 4 -->
+    <!-- ============================================================
+         ENTRANCE DOOR at world front (main entrance)
+         ============================================================ -->
+    <model name="main_entrance_door">
+      <static>true</static>
+      <link name="ed">
+        <visual name="ev"><geometry><box><size>1.2 0.15 2.2</size></box></geometry><material><ambient>0.45 0.25 0.15 1</ambient></material></visual>
+        <collision name="ec"><geometry><box><size>1.2 0.15 2.2</size></box></geometry></collision>
+      </link>
+      <pose>-0.5 8.2 1.1 0 0 0</pose>
+    </model>
+
+    <!-- Exterior windows for facade (simple repeated modules) -->
+    <model name="front_window_left">
+      <static>true</static>
+      <link name="fwl"><visual name="v"><geometry><box><size>1.6 0.05 0.9</size></box></geometry><material><ambient>0.6 0.8 1 0.45</ambient></material></visual><collision name="c"><geometry><box><size>1.6 0.05 0.9</size></box></geometry></collision></link>
+      <pose>-3.5 8.0 1.2 0 0 0</pose>
+    </model>
+
+    <model name="front_window_right">
+      <static>true</static>
+      <link name="fwr"><visual name="v"><geometry><box><size>1.6 0.05 0.9</size></box></geometry><material><ambient>0.6 0.8 1 0.45</ambient></material></visual><collision name="c"><geometry><box><size>1.6 0.05 0.9</size></box></geometry></collision></link>
+      <pose>3.5 8.0 1.2 0 0 0</pose>
+    </model>
+
+    <!-- ============================================================
+         DECORATIVE: Potted Plant (simple cylinder + box)
+         ============================================================ -->
+    <model name="potted_plant">
+      <static>true</static>
+      <link name="pp">
+        <visual name="pot"><geometry><cylinder><radius>0.15</radius><length>0.4</length></cylinder></geometry><material><ambient>0.2 0.1 0.05 1</ambient></material></visual>
+        <collision name="pc"><geometry><cylinder><radius>0.15</radius><length>0.4</length></cylinder></geometry></collision>
+      </link>
+      <pose> -2.3 7.0 0.2 0 0 0</pose>
+    </model>
+
+    <!-- ============================================================
+         LIGHTING — extra point lights for interior ambiance
+         ============================================================ -->
+    <light name="lr_point_light" type="point">
+      <pose>0 0 3 0 0 0</pose>
+      <diffuse>1 0.98 0.9 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>10</range>
+        <constant>0.5</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+    </light>
+
+    <light name="kitchen_light" type="point">
+      <pose>13 0 3 0 0 0</pose>
+      <diffuse>1 1 1 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>8</range>
+        <constant>0.5</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+    </light>
+
+    <!-- ============================================================
+         ROBOT SPAWN POSITIONS (named for convenience)
+         You can spawn robots at these coordinates via your launch file
+         Example: spawn robot at /spawn_points/robot1_pose
+         ============================================================ -->
+    <model name="spawn_point_robot1">
+      <static>true</static>
+      <link name="sp1"><pose>0 1 0 0 0 0</pose></link>
+    </model>
+
+    <model name="spawn_point_robot2">
+      <static>true</static>
+      <link name="sp2"><pose>2 -1 0 0 0 0</pose></link>
+    </model>
+
+    <model name="spawn_point_robot3">
+      <static>true</static>
+      <link name="sp3"><pose>8 0 0 0 0 0</pose></link>
+    </model>
+
+    <!-- End of Part 5 -->
+    <!-- ============================================================
+         NOTES & EXTENSIBILITY
+         - This world is modular: copy the 'wall' blocks to add rooms.
+         - To add another room, create a floor box, then surround it with
+           wall models (adjust poses + sizes).
+         - Replace material scripts with file:// URIs if you want custom textures.
+         - You can remove or disable <static>true</static> on specific objects
+           if you need dynamic behavior.
+         ============================================================ -->
+
+  </world>
+</sdf>
