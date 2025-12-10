@@ -20,3 +20,38 @@ rad.json
 *.flf
 #Test results file
 TestResults.xml
+# Catkin build artifacts
+/build/
+/devel/
+/install/
+logs/
+
+# Python cache files
+*.pyc
+*.pyo
+__pycache__/
+
+# ROS specific
+*.egg-info/
+*.swp
+*.swo
+
+# Ignore generated maps
+/maps/*.pgm
+/maps/*.yaml
+
+# Ignore generated URDF/XACRO intermediate files
+**/*.urdf~
+**/*.xacro~
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE/editor files
+.vscode/
+.idea/
+*.iml
+
+# Ignore backup files
+*~

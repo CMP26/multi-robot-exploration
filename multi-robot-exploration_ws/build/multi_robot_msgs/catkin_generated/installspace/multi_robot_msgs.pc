@@ -1,8 +1,0 @@
-prefix=/root/ros_ws/multi-robot-exploration_ws/install
-
-Name: multi_robot_msgs
-Description: Description of multi_robot_msgs
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

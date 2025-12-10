@@ -12,16 +12,16 @@ try:
     from catkin.environment_cache import generate_environment_script
 except ImportError:
     # search for catkin package in all workspaces and prepend to path
-    for workspace in '/root/ros_ws/multi-robot-exploration_ws/devel;/opt/ros/noetic'.split(';'):
+    for workspace in '/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/multi-robot-exploration_ws/devel;/opt/ros/noetic'.split(';'):
         python_path = os.path.join(workspace, 'lib/python3/dist-packages')
         if os.path.isdir(os.path.join(python_path, 'catkin')):
             sys.path.insert(0, python_path)
             break
     from catkin.environment_cache import generate_environment_script
 
-code = generate_environment_script('/root/ros_ws/multi-robot-exploration_ws/devel/.private/limo_bringup/env.sh')
+code = generate_environment_script('/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/multi-robot-exploration_ws/devel/.private/limo_bringup/env.sh')
 
-output_filename = '/root/ros_ws/multi-robot-exploration_ws/build/limo_bringup/catkin_generated/setup_cached.sh'
+output_filename = '/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/multi-robot-exploration_ws/build/limo_bringup/catkin_generated/setup_cached.sh'
 with open(output_filename, 'w') as f:
     # print('Generate script for cached setup "%s"' % output_filename)
     f.write('\n'.join(code))

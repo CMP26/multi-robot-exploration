@@ -5,7 +5,7 @@
 # or fall back to the destination set at configure time
 
 if test -z $_CATKIN_SETUP_DIR
-    set _CATKIN_SETUP_DIR /root/ros_ws/multi-robot-exploration_ws/devel/.private/catkin_tools_prebuild
+    set _CATKIN_SETUP_DIR /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/multi-robot-exploration_ws/devel/.private/catkin_tools_prebuild
 end
 
 set CATKIN_SETUP_UTIL_ARGS "--extend --local"

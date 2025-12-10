@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "".split(';') if "" != "" else []
 PROJECT_CATKIN_DEPENDS = "".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "catkin_tools_prebuild"
-PROJECT_SPACE_DIR = "/root/ros_ws/multi-robot-exploration_ws/install"
+PROJECT_SPACE_DIR = "/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/multi-robot-exploration_ws/install"
 PROJECT_VERSION = "0.0.0"

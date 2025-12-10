@@ -7,7 +7,7 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/root/ros_ws/multi-robot-exploration_ws/devel/.private/limo_description:$CMAKE_PREFIX_PATH"
-export PWD='/root/ros_ws/multi-robot-exploration_ws/build/limo_description'
-export ROSLISP_PACKAGE_DIRECTORIES="/root/ros_ws/multi-robot-exploration_ws/devel/.private/limo_description/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH="/root/ros_ws/multi-robot-exploration_ws/src/limo_ros/limo_description:$ROS_PACKAGE_PATH"
+export CMAKE_PREFIX_PATH="/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/multi-robot-exploration_ws/devel/.private/limo_description:$CMAKE_PREFIX_PATH"
+export PWD='/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/multi-robot-exploration_ws/build/limo_description'
+export ROSLISP_PACKAGE_DIRECTORIES="/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/multi-robot-exploration_ws/devel/.private/limo_description/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
+export ROS_PACKAGE_PATH="/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/multi-robot-exploration_ws/src/limo_cobot_sim/limo_mycobot/limo/limo_description:$ROS_PACKAGE_PATH"

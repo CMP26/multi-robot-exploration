@@ -1,8 +1,0 @@
-prefix=/root/ros_ws/multi-robot-exploration_ws/install
-
-Name: limo_viz
-Description: Description of limo_viz
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

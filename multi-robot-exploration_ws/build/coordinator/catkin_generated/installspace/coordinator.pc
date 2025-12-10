@@ -1,8 +1,0 @@
-prefix=/root/ros_ws/multi-robot-exploration_ws/install
-
-Name: coordinator
-Description: Description of coordinator
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: multi_robot_msgs geometry_msgs rospy sensor_msgs std_msgs nav_msgs

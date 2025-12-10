@@ -1,2 +1,0 @@
-- setup-file:
-    local-name: /root/ros_ws/multi-robot-exploration_ws/devel/.private/multi_robot_msgs/setup.sh

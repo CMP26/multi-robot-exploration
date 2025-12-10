@@ -1,7 +1,0 @@
-# CMake generated Testfile for 
-# Source directory: /usr/src/googletest/googlemock
-# Build directory: /root/ros_ws/multi-robot-exploration_ws/build/navigation_stack/gtest/googlemock
-# 
-# This file includes the relevant testing commands required for 
-# testing this directory and lists subdirectories to be tested as well.
-subdirs("../googletest")

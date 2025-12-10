@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/ros_ws/multi-robot-exploration_ws/src/limo_ros/limo_bringup
+CMAKE_SOURCE_DIR = /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/multi-robot-exploration_ws/src/limo_ros/limo_bringup
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/ros_ws/multi-robot-exploration_ws/build/limo_bringup
+CMAKE_BINARY_DIR = /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/multi-robot-exploration_ws/build/limo_bringup
 
 # Utility rule file for run_tests.
 
@@ -67,6 +67,6 @@ CMakeFiles/run_tests.dir/clean:
 .PHONY : CMakeFiles/run_tests.dir/clean
 
 CMakeFiles/run_tests.dir/depend:
-	cd /root/ros_ws/multi-robot-exploration_ws/build/limo_bringup && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/ros_ws/multi-robot-exploration_ws/src/limo_ros/limo_bringup /root/ros_ws/multi-robot-exploration_ws/src/limo_ros/limo_bringup /root/ros_ws/multi-robot-exploration_ws/build/limo_bringup /root/ros_ws/multi-robot-exploration_ws/build/limo_bringup /root/ros_ws/multi-robot-exploration_ws/build/limo_bringup/CMakeFiles/run_tests.dir/DependInfo.cmake --color=$(COLOR)
+	cd /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/multi-robot-exploration_ws/build/limo_bringup && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/multi-robot-exploration_ws/src/limo_ros/limo_bringup /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/multi-robot-exploration_ws/src/limo_ros/limo_bringup /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/multi-robot-exploration_ws/build/limo_bringup /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/multi-robot-exploration_ws/build/limo_bringup /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/multi-robot-exploration_ws/build/limo_bringup/CMakeFiles/run_tests.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/run_tests.dir/depend
 

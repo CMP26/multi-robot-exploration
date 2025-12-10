@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/ros_ws/multi-robot-exploration_ws/src/limo_ros/limo_description
+CMAKE_SOURCE_DIR = /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/multi-robot-exploration_ws/src/limo_cobot_sim/limo_mycobot/limo/limo_description
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/ros_ws/multi-robot-exploration_ws/build/limo_description
+CMAKE_BINARY_DIR = /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/multi-robot-exploration_ws/build/limo_description
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,9 +137,9 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/ros_ws/multi-robot-exploration_ws/build/limo_description/CMakeFiles /root/ros_ws/multi-robot-exploration_ws/build/limo_description/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/multi-robot-exploration_ws/build/limo_description/CMakeFiles /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/multi-robot-exploration_ws/build/limo_description/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/ros_ws/multi-robot-exploration_ws/build/limo_description/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/multi-robot-exploration_ws/build/limo_description/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

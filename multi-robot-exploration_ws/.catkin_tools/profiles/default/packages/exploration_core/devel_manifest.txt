@@ -1,4 +1,0 @@
-exploration_core
-/root/ros_ws/multi-robot-exploration_ws/devel/.private/exploration_core/lib/pkgconfig/exploration_core.pc /root/ros_ws/multi-robot-exploration_ws/devel/lib/pkgconfig/exploration_core.pc
-/root/ros_ws/multi-robot-exploration_ws/devel/.private/exploration_core/share/exploration_core/cmake/exploration_coreConfig.cmake /root/ros_ws/multi-robot-exploration_ws/devel/share/exploration_core/cmake/exploration_coreConfig.cmake
-/root/ros_ws/multi-robot-exploration_ws/devel/.private/exploration_core/share/exploration_core/cmake/exploration_coreConfig-version.cmake /root/ros_ws/multi-robot-exploration_ws/devel/share/exploration_core/cmake/exploration_coreConfig-version.cmake
