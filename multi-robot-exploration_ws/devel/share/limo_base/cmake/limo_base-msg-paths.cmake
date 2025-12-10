@@ -1,1 +1,0 @@
-/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/multi-robot-exploration_ws/devel/.private/limo_base/share/limo_base/cmake/limo_base-msg-paths.cmake

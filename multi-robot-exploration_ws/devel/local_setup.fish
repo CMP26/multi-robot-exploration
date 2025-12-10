@@ -1,1 +1,0 @@
-/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/multi-robot-exploration_ws/devel/.private/catkin_tools_prebuild/local_setup.fish
