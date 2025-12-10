@@ -2,11 +2,12 @@
 This project aims to apply the concepts of cognitive robotics to implement multi-robot exploration and map merging using known initial poses, and then apply it on Gazebo and RViz simulation tools using a real-life robot model in a realistic environment
 
 ## Workspace Structure
+```
 multi-robot-exploration_ws/
 ├── src/
 │   ├── CMakeLists.txt -> /opt/ros/noetic
 │   │
-│   ├── limo_multi_robot/                      <-- Your main Python package
+│   ├── limo_multi_robot/                      <-- Main Python package
 │   │   ├── CMakeLists.txt                     <-- Python-only version
 │   │   ├── package.xml                        <-- Python-only version
 │   │   │
@@ -76,7 +77,7 @@ multi-robot-exploration_ws/
 ├── devel/                        <-- catkin development space
 ├── logs/                         <-- catkin logs
 └── setup.sh                       <-- Workspace setup script
-
+```
 ### Additional Notes
 - setup.sh: Source this file to set up your environment for the workspace.
 - Ensure all dependencies are installed using `rosdep install --from-paths src --ignore-src -r -y` before building the workspace.
