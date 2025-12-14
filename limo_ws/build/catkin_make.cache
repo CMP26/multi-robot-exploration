@@ -1,0 +1,2 @@
+limo_cobot_sim/limo_cobot_moveit:limo_cobot_sim/limo_mycobot/limo/limo_gazebo_sim:limo_cobot_sim/limo_mycobot/mycobot_description:limo_ros/limo_base:limo_ros/limo_bringup:limo_ros/limo_description:multi_limo
+-DCATKIN_DEVEL_PREFIX=/home/ali/limo_ws/devel -DCMAKE_INSTALL_PREFIX=/home/ali/limo_ws/install -G Unix Makefiles

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="ns" default="robot1"/>
+  <env name="GAZEBO_GRAPHICS_QUALITY" value="0"/>
+  <env name="LIBGL_ALWAYS_SOFTWARE" value="1"/>
+
+  <!-- Start Gazebo -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="worlds/empty.world"/>
+    <arg name="gui" value="true"/>
+    <arg name="paused" value="false"/>
+  </include>
+
+  <group ns="$(arg ns)">
+    <!--<param name="tf_prefix" value="$(arg ns)" />-->
+
+    <!-- Load URDF -->
+    <param name="robot_description"
+           command="$(find xacro)/xacro '$(find limo_description)/urdf/limo_four_diff.xacro'
+                    robot_namespace:=$(arg ns)" />
+
+    
+    <!-- Spawn robot -->
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"
+          args="-urdf -model $(arg ns) -param robot_description -x 0 -y 0 -z 0.2"/>
+
+    <!-- robot_state_publisher -->
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher"/>
+      
+
+    <!-- remap lidar from Gazebo default to namespaced scan -->
+    <remap from="/limo/scan" to="/$(arg ns)/scan"/>
+    <remap from="/limo/imu" to="/$(arg ns)/imu"/>
+  </group>
+</launch>

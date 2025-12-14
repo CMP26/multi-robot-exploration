@@ -1,0 +1,8 @@
+prefix=/home/ali/limo_ws/install
+
+Name: multi_limo
+Description: Description of multi_limo
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

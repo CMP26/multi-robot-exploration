@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="gui" default="true"/>
+  <arg name="world_file" default="$(find multi_limo)/worlds/house.world"/>
+  
+  <!-- Initial poses for each robot (you can adjust these) -->
+  <arg name="robot1_x" default="-6.0"/>
+  <arg name="robot1_y" default="2.0"/>
+  <arg name="robot1_z" default="0.2"/>
+  <arg name="robot1_yaw" default="0.0"/>
+  
+  <arg name="robot2_x" default="0.0"/>
+  <arg name="robot2_y" default="-2.0"/>
+  <arg name="robot2_z" default="0.2"/>
+  <arg name="robot2_yaw" default="1.57"/>
+  
+  <arg name="robot3_x" default="7.0"/>
+  <arg name="robot3_y" default="-2.0"/>
+  <arg name="robot3_z" default="0.2"/>
+  <arg name="robot3_yaw" default="-1.57"/>
+  
+  <env name="GAZEBO_GRAPHICS_QUALITY" value="0"/>
+  <env name="LIBGL_ALWAYS_SOFTWARE" value="1"/>
+  
+  <!-- Launch Gazebo with custom world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(arg world_file)"/>
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="paused" value="false"/>
+  </include>
+
+  <!-- Static transforms connecting all robots to world frame -->
+  <node pkg="tf" type="static_transform_publisher" name="world_to_robot1_odom" 
+        args="$(arg robot1_x) $(arg robot1_y) 0 $(arg robot1_yaw) 0 0 world robot1/odom 100"/>
+  
+  <node pkg="tf" type="static_transform_publisher" name="world_to_robot2_odom" 
+        args="$(arg robot2_x) $(arg robot2_y) 0 $(arg robot2_yaw) 0 0 world robot2/odom 100"/>
+  
+  <node pkg="tf" type="static_transform_publisher" name="world_to_robot3_odom" 
+        args="$(arg robot3_x) $(arg robot3_y) 0 $(arg robot3_yaw) 0 0 world robot3/odom 100"/>
+
+  <!-- robot1 -->
+  <group ns="robot1">
+    <param name="robot_description"
+           command="$(find xacro)/xacro '$(find limo_description)/urdf/limo_four_diff.xacro' robot_namespace:=robot1" />
+    
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"
+          args="-urdf -model robot1 -param robot_description -x $(arg robot1_x) -y $(arg robot1_y) -z $(arg robot1_z) -Y $(arg robot1_yaw)"/>
+    
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+      <param name="publish_frequency" value="50.0"/>
+    </node>
+  </group>
+
+  <!-- robot2 -->
+  <group ns="robot2">
+    <param name="robot_description"
+           command="$(find xacro)/xacro '$(find limo_description)/urdf/limo_four_diff.xacro' robot_namespace:=robot2" />
+    
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"
+          args="-urdf -model robot2 -param robot_description -x $(arg robot2_x) -y $(arg robot2_y) -z $(arg robot2_z) -Y $(arg robot2_yaw)"/>
+    
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+      <param name="publish_frequency" value="50.0"/>
+    </node>
+  </group>
+
+  <!-- robot3 -->
+  <group ns="robot3">
+    <param name="robot_description"
+           command="$(find xacro)/xacro '$(find limo_description)/urdf/limo_four_diff.xacro' robot_namespace:=robot3" />
+    
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"
+          args="-urdf -model robot3 -param robot_description -x $(arg robot3_x) -y $(arg robot3_y) -z $(arg robot3_z) -Y $(arg robot3_yaw)"/>
+    
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+      <param name="publish_frequency" value="50.0"/>
+    </node>
+  </group>
+
+</launch>
