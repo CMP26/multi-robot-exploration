@@ -1,8 +1,8 @@
-# Install script for directory: /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/src/multi_limo
+# Install script for directory: /root/ros_ws/multi-robot-exploration/limo_ws/src/multi_limo
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/root/ros_ws/multi-robot-exploration/limo_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,24 +38,30 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/build/multi_limo/catkin_generated/installspace/multi_limo.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/root/ros_ws/multi-robot-exploration/limo_ws/build/multi_limo/catkin_generated/installspace/multi_limo.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/multi_limo/cmake" TYPE FILE FILES
-    "/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/build/multi_limo/catkin_generated/installspace/multi_limoConfig.cmake"
-    "/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/build/multi_limo/catkin_generated/installspace/multi_limoConfig-version.cmake"
+    "/root/ros_ws/multi-robot-exploration/limo_ws/build/multi_limo/catkin_generated/installspace/multi_limoConfig.cmake"
+    "/root/ros_ws/multi-robot-exploration/limo_ws/build/multi_limo/catkin_generated/installspace/multi_limoConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/multi_limo" TYPE FILE FILES "/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/src/multi_limo/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/multi_limo" TYPE FILE FILES "/root/ros_ws/multi-robot-exploration/limo_ws/src/multi_limo/package.xml")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/multi_limo" TYPE PROGRAM FILES "/root/ros_ws/multi-robot-exploration/limo_ws/build/multi_limo/catkin_generated/installspace/visual_search_node.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/multi_limo" TYPE DIRECTORY FILES
-    "/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/src/multi_limo/launch"
-    "/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/src/multi_limo/worlds"
+    "/root/ros_ws/multi-robot-exploration/limo_ws/src/multi_limo/launch"
+    "/root/ros_ws/multi-robot-exploration/limo_ws/src/multi_limo/worlds"
+    "/root/ros_ws/multi-robot-exploration/limo_ws/src/multi_limo/config"
+    "/root/ros_ws/multi-robot-exploration/limo_ws/src/multi_limo/rviz"
     )
 endif()
 

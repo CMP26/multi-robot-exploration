@@ -1,8 +1,8 @@
-# Install script for directory: /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/src/limo_cobot_sim/limo_cobot_moveit
+# Install script for directory: /root/ros_ws/multi-robot-exploration/limo_ws/src/limo_cobot_sim/limo_cobot_moveit
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/root/ros_ws/multi-robot-exploration/limo_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,25 +38,25 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/build/limo_cobot_sim/limo_cobot_moveit/catkin_generated/installspace/limo_cobot_moveit.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/root/ros_ws/multi-robot-exploration/limo_ws/build/limo_cobot_sim/limo_cobot_moveit/catkin_generated/installspace/limo_cobot_moveit.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/limo_cobot_moveit/cmake" TYPE FILE FILES
-    "/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/build/limo_cobot_sim/limo_cobot_moveit/catkin_generated/installspace/limo_cobot_moveitConfig.cmake"
-    "/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/build/limo_cobot_sim/limo_cobot_moveit/catkin_generated/installspace/limo_cobot_moveitConfig-version.cmake"
+    "/root/ros_ws/multi-robot-exploration/limo_ws/build/limo_cobot_sim/limo_cobot_moveit/catkin_generated/installspace/limo_cobot_moveitConfig.cmake"
+    "/root/ros_ws/multi-robot-exploration/limo_ws/build/limo_cobot_sim/limo_cobot_moveit/catkin_generated/installspace/limo_cobot_moveitConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/limo_cobot_moveit" TYPE FILE FILES "/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/src/limo_cobot_sim/limo_cobot_moveit/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/limo_cobot_moveit" TYPE FILE FILES "/root/ros_ws/multi-robot-exploration/limo_ws/src/limo_cobot_sim/limo_cobot_moveit/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/limo_cobot_moveit" TYPE DIRECTORY FILES "/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/src/limo_cobot_sim/limo_cobot_moveit/launch" REGEX "/setup\\_assistant\\.launch$" EXCLUDE)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/limo_cobot_moveit" TYPE DIRECTORY FILES "/root/ros_ws/multi-robot-exploration/limo_ws/src/limo_cobot_sim/limo_cobot_moveit/launch" REGEX "/setup\\_assistant\\.launch$" EXCLUDE)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/limo_cobot_moveit" TYPE DIRECTORY FILES "/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/src/limo_cobot_sim/limo_cobot_moveit/config")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/limo_cobot_moveit" TYPE DIRECTORY FILES "/root/ros_ws/multi-robot-exploration/limo_ws/src/limo_cobot_sim/limo_cobot_moveit/config")
 endif()
 

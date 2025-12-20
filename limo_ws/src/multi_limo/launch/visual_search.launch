@@ -9,7 +9,7 @@
   
   <!-- Arguments -->
   <arg name="robot_namespace" default="robot1"/>
-  <arg name="target_image_path" default="$(find multi_limo)/data/target_object.png"/>
+  <arg name="target_image_path" default="$(find multi_limo)/data/image.jpg"/>
   <arg name="publish_debug" default="false"/>
   
   <!-- ORB Parameters -->
@@ -32,7 +32,7 @@
       
       <!-- Basic Parameters -->
       <param name="robot_namespace" value="$(arg robot_namespace)"/>
-      <param name="target_image_path" value="$(arg target_image_path)"/>
+      <param name="target_image_path" value="$(find multi_limo)/data/image.jpg"/>
       <param name="publish_debug" value="$(arg publish_debug)"/>
       
       <!-- ORB Parameters -->
