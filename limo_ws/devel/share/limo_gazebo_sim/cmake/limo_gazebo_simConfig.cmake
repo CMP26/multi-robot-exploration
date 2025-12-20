@@ -67,14 +67,14 @@ set(limo_gazebo_sim_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(limo_gazebo_sim_SOURCE_PREFIX /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/src/limo_cobot_sim/limo_mycobot/limo/limo_gazebo_sim)
-  set(limo_gazebo_sim_DEVEL_PREFIX /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/devel)
+  set(limo_gazebo_sim_SOURCE_PREFIX /root/ros_ws/multi-robot-exploration/limo_ws/src/limo_cobot_sim/limo_mycobot/limo/limo_gazebo_sim)
+  set(limo_gazebo_sim_DEVEL_PREFIX /root/ros_ws/multi-robot-exploration/limo_ws/devel)
   set(limo_gazebo_sim_INSTALL_PREFIX "")
   set(limo_gazebo_sim_PREFIX ${limo_gazebo_sim_DEVEL_PREFIX})
 else()
   set(limo_gazebo_sim_SOURCE_PREFIX "")
   set(limo_gazebo_sim_DEVEL_PREFIX "")
-  set(limo_gazebo_sim_INSTALL_PREFIX /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/install)
+  set(limo_gazebo_sim_INSTALL_PREFIX /root/ros_ws/multi-robot-exploration/limo_ws/install)
   set(limo_gazebo_sim_PREFIX ${limo_gazebo_sim_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(limo_gazebo_sim_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/src/limo_cobot_sim/limo_mycobot/limo/limo_gazebo_sim/include " STREQUAL " ")
+if(NOT "/root/ros_ws/multi-robot-exploration/limo_ws/src/limo_cobot_sim/limo_mycobot/limo/limo_gazebo_sim/include " STREQUAL " ")
   set(limo_gazebo_sim_INCLUDE_DIRS "")
-  set(_include_dirs "/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/src/limo_cobot_sim/limo_mycobot/limo/limo_gazebo_sim/include")
+  set(_include_dirs "/root/ros_ws/multi-robot-exploration/limo_ws/src/limo_cobot_sim/limo_mycobot/limo/limo_gazebo_sim/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/proj
         message(FATAL_ERROR "Project 'limo_gazebo_sim' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'limo_gazebo_sim' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/src/limo_cobot_sim/limo_mycobot/limo/limo_gazebo_sim/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'limo_gazebo_sim' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/root/ros_ws/multi-robot-exploration/limo_ws/src/limo_cobot_sim/limo_mycobot/limo/limo_gazebo_sim/${idir}'.  ${_report}")
     endif()
     _list_append_unique(limo_gazebo_sim_INCLUDE_DIRS ${include})
   endforeach()
@@ -156,7 +156,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /root/ros_ws/multi-robot-exploration/limo_ws/devel/lib;/root/ros_ws/multi-robot-exploration/limo_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
