@@ -1,4 +1,4 @@
-prefix=/home/ali/limo_ws/devel
+prefix=/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/devel
 
 Name: limo_cobot_moveit
 Description: Description of limo_cobot_moveit

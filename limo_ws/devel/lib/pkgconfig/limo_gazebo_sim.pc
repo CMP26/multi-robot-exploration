@@ -1,8 +1,8 @@
-prefix=/home/ali/limo_ws/devel
+prefix=/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/devel
 
 Name: limo_gazebo_sim
 Description: Description of limo_gazebo_sim
 Version: 0.0.1
-Cflags: -I/home/ali/limo_ws/src/limo_cobot_sim/limo_mycobot/limo/limo_gazebo_sim/include
+Cflags: -I/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/src/limo_cobot_sim/limo_mycobot/limo/limo_gazebo_sim/include
 Libs: -L${prefix}/lib -lgazebo_ros_ackerman
 Requires: roscpp sensor_msgs

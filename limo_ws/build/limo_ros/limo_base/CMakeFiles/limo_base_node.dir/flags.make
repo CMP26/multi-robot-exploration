@@ -6,5 +6,5 @@ CXX_FLAGS =
 
 CXX_DEFINES = -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"limo_base\"
 
-CXX_INCLUDES = -I/home/ali/limo_ws/devel/include -I/home/ali/limo_ws/src/limo_ros/limo_base/include -I/home/ali/limo_ws/src/limo_ros/limo_base/include/limo_base -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp 
+CXX_INCLUDES = -I/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/devel/include -I/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/src/limo_ros/limo_base/include -I/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/src/limo_ros/limo_base/include/limo_base -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp 
 

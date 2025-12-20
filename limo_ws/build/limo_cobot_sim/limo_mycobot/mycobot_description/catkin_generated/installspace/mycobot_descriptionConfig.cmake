@@ -67,14 +67,14 @@ set(mycobot_description_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(mycobot_description_SOURCE_PREFIX /home/ali/limo_ws/src/limo_cobot_sim/limo_mycobot/mycobot_description)
-  set(mycobot_description_DEVEL_PREFIX /home/ali/limo_ws/devel)
+  set(mycobot_description_SOURCE_PREFIX /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/src/limo_cobot_sim/limo_mycobot/mycobot_description)
+  set(mycobot_description_DEVEL_PREFIX /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/devel)
   set(mycobot_description_INSTALL_PREFIX "")
   set(mycobot_description_PREFIX ${mycobot_description_DEVEL_PREFIX})
 else()
   set(mycobot_description_SOURCE_PREFIX "")
   set(mycobot_description_DEVEL_PREFIX "")
-  set(mycobot_description_INSTALL_PREFIX /home/ali/limo_ws/install)
+  set(mycobot_description_INSTALL_PREFIX /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/install)
   set(mycobot_description_PREFIX ${mycobot_description_INSTALL_PREFIX})
 endif()
 
@@ -156,7 +156,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/ali/limo_ws/install/lib;/home/ali/limo_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/install/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ali/limo_ws/src
+CMAKE_SOURCE_DIR = /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ali/limo_ws/build
+CMAKE_BINARY_DIR = /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/build
 
 # Utility rule file for trajectory_msgs_generate_messages_eus.
 
@@ -63,10 +63,10 @@ limo_cobot_sim/limo_mycobot/limo/limo_gazebo_sim/CMakeFiles/trajectory_msgs_gene
 .PHONY : limo_cobot_sim/limo_mycobot/limo/limo_gazebo_sim/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build
 
 limo_cobot_sim/limo_mycobot/limo/limo_gazebo_sim/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/clean:
-	cd /home/ali/limo_ws/build/limo_cobot_sim/limo_mycobot/limo/limo_gazebo_sim && $(CMAKE_COMMAND) -P CMakeFiles/trajectory_msgs_generate_messages_eus.dir/cmake_clean.cmake
+	cd /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/build/limo_cobot_sim/limo_mycobot/limo/limo_gazebo_sim && $(CMAKE_COMMAND) -P CMakeFiles/trajectory_msgs_generate_messages_eus.dir/cmake_clean.cmake
 .PHONY : limo_cobot_sim/limo_mycobot/limo/limo_gazebo_sim/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/clean
 
 limo_cobot_sim/limo_mycobot/limo/limo_gazebo_sim/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/depend:
-	cd /home/ali/limo_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ali/limo_ws/src /home/ali/limo_ws/src/limo_cobot_sim/limo_mycobot/limo/limo_gazebo_sim /home/ali/limo_ws/build /home/ali/limo_ws/build/limo_cobot_sim/limo_mycobot/limo/limo_gazebo_sim /home/ali/limo_ws/build/limo_cobot_sim/limo_mycobot/limo/limo_gazebo_sim/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/DependInfo.cmake --color=$(COLOR)
+	cd /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/src /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/src/limo_cobot_sim/limo_mycobot/limo/limo_gazebo_sim /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/build /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/build/limo_cobot_sim/limo_mycobot/limo/limo_gazebo_sim /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/build/limo_cobot_sim/limo_mycobot/limo/limo_gazebo_sim/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : limo_cobot_sim/limo_mycobot/limo/limo_gazebo_sim/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/depend
 

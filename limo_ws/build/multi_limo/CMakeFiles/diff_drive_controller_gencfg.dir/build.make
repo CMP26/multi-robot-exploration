@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ali/limo_ws/src
+CMAKE_SOURCE_DIR = /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ali/limo_ws/build
+CMAKE_BINARY_DIR = /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/build
 
 # Utility rule file for diff_drive_controller_gencfg.
 
@@ -63,10 +63,10 @@ multi_limo/CMakeFiles/diff_drive_controller_gencfg.dir/build: diff_drive_control
 .PHONY : multi_limo/CMakeFiles/diff_drive_controller_gencfg.dir/build
 
 multi_limo/CMakeFiles/diff_drive_controller_gencfg.dir/clean:
-	cd /home/ali/limo_ws/build/multi_limo && $(CMAKE_COMMAND) -P CMakeFiles/diff_drive_controller_gencfg.dir/cmake_clean.cmake
+	cd /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/build/multi_limo && $(CMAKE_COMMAND) -P CMakeFiles/diff_drive_controller_gencfg.dir/cmake_clean.cmake
 .PHONY : multi_limo/CMakeFiles/diff_drive_controller_gencfg.dir/clean
 
 multi_limo/CMakeFiles/diff_drive_controller_gencfg.dir/depend:
-	cd /home/ali/limo_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ali/limo_ws/src /home/ali/limo_ws/src/multi_limo /home/ali/limo_ws/build /home/ali/limo_ws/build/multi_limo /home/ali/limo_ws/build/multi_limo/CMakeFiles/diff_drive_controller_gencfg.dir/DependInfo.cmake --color=$(COLOR)
+	cd /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/src /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/src/multi_limo /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/build /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/build/multi_limo /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/build/multi_limo/CMakeFiles/diff_drive_controller_gencfg.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : multi_limo/CMakeFiles/diff_drive_controller_gencfg.dir/depend
 

@@ -1,8 +1,8 @@
-# Install script for directory: /home/ali/limo_ws/src/limo_cobot_sim/limo_mycobot/mycobot_description
+# Install script for directory: /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/src/limo_cobot_sim/limo_mycobot/mycobot_description
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/ali/limo_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/ali/limo_ws/build/limo_cobot_sim/limo_mycobot/mycobot_description/catkin_generated/installspace/mycobot_description.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/build/limo_cobot_sim/limo_mycobot/mycobot_description/catkin_generated/installspace/mycobot_description.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/mycobot_description/cmake" TYPE FILE FILES
-    "/home/ali/limo_ws/build/limo_cobot_sim/limo_mycobot/mycobot_description/catkin_generated/installspace/mycobot_descriptionConfig.cmake"
-    "/home/ali/limo_ws/build/limo_cobot_sim/limo_mycobot/mycobot_description/catkin_generated/installspace/mycobot_descriptionConfig-version.cmake"
+    "/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/build/limo_cobot_sim/limo_mycobot/mycobot_description/catkin_generated/installspace/mycobot_descriptionConfig.cmake"
+    "/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/build/limo_cobot_sim/limo_mycobot/mycobot_description/catkin_generated/installspace/mycobot_descriptionConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/mycobot_description" TYPE FILE FILES "/home/ali/limo_ws/src/limo_cobot_sim/limo_mycobot/mycobot_description/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/mycobot_description" TYPE FILE FILES "/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/src/limo_cobot_sim/limo_mycobot/mycobot_description/package.xml")
 endif()
 

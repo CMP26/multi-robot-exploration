@@ -1,8 +1,8 @@
-# Install script for directory: /home/ali/limo_ws/src/limo_cobot_sim/limo_mycobot/limo/limo_gazebo_sim
+# Install script for directory: /media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/src/limo_cobot_sim/limo_mycobot/limo/limo_gazebo_sim
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/ali/limo_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/ali/limo_ws/build/limo_cobot_sim/limo_mycobot/limo/limo_gazebo_sim/catkin_generated/installspace/limo_gazebo_sim.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/build/limo_cobot_sim/limo_mycobot/limo/limo_gazebo_sim/catkin_generated/installspace/limo_gazebo_sim.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/limo_gazebo_sim/cmake" TYPE FILE FILES
-    "/home/ali/limo_ws/build/limo_cobot_sim/limo_mycobot/limo/limo_gazebo_sim/catkin_generated/installspace/limo_gazebo_simConfig.cmake"
-    "/home/ali/limo_ws/build/limo_cobot_sim/limo_mycobot/limo/limo_gazebo_sim/catkin_generated/installspace/limo_gazebo_simConfig-version.cmake"
+    "/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/build/limo_cobot_sim/limo_mycobot/limo/limo_gazebo_sim/catkin_generated/installspace/limo_gazebo_simConfig.cmake"
+    "/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/build/limo_cobot_sim/limo_mycobot/limo/limo_gazebo_sim/catkin_generated/installspace/limo_gazebo_simConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/limo_gazebo_sim" TYPE FILE FILES "/home/ali/limo_ws/src/limo_cobot_sim/limo_mycobot/limo/limo_gazebo_sim/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/limo_gazebo_sim" TYPE FILE FILES "/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/src/limo_cobot_sim/limo_mycobot/limo/limo_gazebo_sim/package.xml")
 endif()
 
