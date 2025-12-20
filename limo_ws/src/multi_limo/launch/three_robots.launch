@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
   <arg name="gui" default="true"/>
-  <arg name="world_file" default="$(find multi_limo)/worlds/house.world"/>
+  <arg name="world_file" default="$(find multi_limo)/worlds/envMap.world"/>
   
   <!-- Initial poses for each robot (you can adjust these) -->
   <arg name="robot1_x" default="-6.0"/>

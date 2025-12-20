@@ -1,0 +1,8 @@
+<launch>
+
+  <!-- Delay to ensure Gazebo is ready -->
+  <node pkg="roslaunch" type="roslaunch" name="delayed_spawn"
+        args="$(find multi_limo)/launch/three_robots.launch"
+        launch-prefix="bash -c 'sleep 5; $0 $@'"/>
+
+</launch>
