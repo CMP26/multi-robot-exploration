@@ -14,8 +14,12 @@
   <depend>rospy</depend>
   <depend>std_msgs</depend>
   <depend>geometry_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>visualization_msgs</depend>
   <depend>tf</depend>
   <depend>gazebo_ros</depend>
+  <depend>cv_bridge</depend>
+  <depend>image_transport</depend>
   <depend>robot_state_publisher</depend>
   <depend>controller_manager</depend>
   <depend>joint_state_controller</depend>

@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<launch>
+  <!--
+    Visual Search Launch File
+    
+    Launches visual search nodes for multi-robot object detection.
+    Each robot gets its own visual search node instance.
+  -->
+  
+  <!-- Arguments -->
+  <arg name="robot_namespace" default="robot1"/>
+  <arg name="target_image_path" default="$(find multi_limo)/data/target_object.png"/>
+  <arg name="publish_debug" default="false"/>
+  
+  <!-- ORB Parameters -->
+  <arg name="orb_nfeatures" default="1000"/>
+  <arg name="match_ratio_threshold" default="0.75"/>
+  <arg name="ransac_threshold" default="5.0"/>
+  <arg name="min_inliers" default="10"/>
+  
+  <!-- Temporal Filtering Parameters -->
+  <arg name="temporal_window_size" default="5"/>
+  <arg name="detection_threshold" default="0.6"/>
+  
+  <!-- Visual Search Node -->
+  <group ns="$(arg robot_namespace)">
+    <node 
+      pkg="multi_limo" 
+      type="visual_search_node.py" 
+      name="visual_search" 
+      output="screen">
+      
+      <!-- Basic Parameters -->
+      <param name="robot_namespace" value="$(arg robot_namespace)"/>
+      <param name="target_image_path" value="$(arg target_image_path)"/>
+      <param name="publish_debug" value="$(arg publish_debug)"/>
+      
+      <!-- ORB Parameters -->
+      <param name="orb_nfeatures" value="$(arg orb_nfeatures)"/>
+      <param name="match_ratio_threshold" value="$(arg match_ratio_threshold)"/>
+      <param name="ransac_threshold" value="$(arg ransac_threshold)"/>
+      <param name="min_inliers" value="$(arg min_inliers)"/>
+      
+      <!-- Temporal Filtering Parameters -->
+      <param name="temporal_window_size" value="$(arg temporal_window_size)"/>
+      <param name="detection_threshold" value="$(arg detection_threshold)"/>
+      
+    </node>
+  </group>
+  
+</launch>
+
+
+
+
