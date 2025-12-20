@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<launch>
+  <!--
+    Visual Search Multi-Robot Launch File
+    
+    Launches visual search nodes for all robots in the multi-robot system.
+  -->
+  
+  <!-- Arguments -->
+  <arg name="target_image_path" default="$(find multi_limo)/data/target_object.png"/>
+  <arg name="publish_debug" default="false"/>
+  
+  <!-- ORB Parameters -->
+  <arg name="orb_nfeatures" default="1000"/>
+  <arg name="match_ratio_threshold" default="0.75"/>
+  <arg name="ransac_threshold" default="5.0"/>
+  <arg name="min_inliers" default="10"/>
+  
+  <!-- Temporal Filtering Parameters -->
+  <arg name="temporal_window_size" default="5"/>
+  <arg name="detection_threshold" default="0.6"/>
+  
+  <!-- Robot 1 Visual Search -->
+  <include file="$(find multi_limo)/launch/visual_search.launch">
+    <arg name="robot_namespace" value="robot1"/>
+    <arg name="target_image_path" value="$(arg target_image_path)"/>
+    <arg name="publish_debug" value="$(arg publish_debug)"/>
+    <arg name="orb_nfeatures" value="$(arg orb_nfeatures)"/>
+    <arg name="match_ratio_threshold" value="$(arg match_ratio_threshold)"/>
+    <arg name="ransac_threshold" value="$(arg ransac_threshold)"/>
+    <arg name="min_inliers" value="$(arg min_inliers)"/>
+    <arg name="temporal_window_size" value="$(arg temporal_window_size)"/>
+    <arg name="detection_threshold" value="$(arg detection_threshold)"/>
+  </include>
+  
+  <!-- Robot 2 Visual Search -->
+  <include file="$(find multi_limo)/launch/visual_search.launch">
+    <arg name="robot_namespace" value="robot2"/>
+    <arg name="target_image_path" value="$(arg target_image_path)"/>
+    <arg name="publish_debug" value="$(arg publish_debug)"/>
+    <arg name="orb_nfeatures" value="$(arg orb_nfeatures)"/>
+    <arg name="match_ratio_threshold" value="$(arg match_ratio_threshold)"/>
+    <arg name="ransac_threshold" value="$(arg ransac_threshold)"/>
+    <arg name="min_inliers" value="$(arg min_inliers)"/>
+    <arg name="temporal_window_size" value="$(arg temporal_window_size)"/>
+    <arg name="detection_threshold" value="$(arg detection_threshold)"/>
+  </include>
+  
+  <!-- Robot 3 Visual Search -->
+  <include file="$(find multi_limo)/launch/visual_search.launch">
+    <arg name="robot_namespace" value="robot3"/>
+    <arg name="target_image_path" value="$(arg target_image_path)"/>
+    <arg name="publish_debug" value="$(arg publish_debug)"/>
+    <arg name="orb_nfeatures" value="$(arg orb_nfeatures)"/>
+    <arg name="match_ratio_threshold" value="$(arg match_ratio_threshold)"/>
+    <arg name="ransac_threshold" value="$(arg ransac_threshold)"/>
+    <arg name="min_inliers" value="$(arg min_inliers)"/>
+    <arg name="temporal_window_size" value="$(arg temporal_window_size)"/>
+    <arg name="detection_threshold" value="$(arg detection_threshold)"/>
+  </include>
+  
+</launch>
+
+
+
+
