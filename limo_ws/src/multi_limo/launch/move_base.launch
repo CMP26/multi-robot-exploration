@@ -1,0 +1,23 @@
+<launch>
+  <arg name="robot_ns" default="robot1"/>
+
+  <group ns="$(arg robot_ns)">
+    <node pkg="move_base" type="move_base" name="move_base" output="screen">
+      <param name="base_global_planner" value="navfn/NavfnROS"/>
+      <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS"/>
+      
+      <rosparam file="$(find multi_limo)/config/global_costmap.yaml" command="load" ns="global_costmap"/>
+      <rosparam file="$(find multi_limo)/config/local_costmap.yaml" command="load" ns="local_costmap"/>
+      <rosparam file="$(find multi_limo)/config/base_local_planner.yaml" command="load"/>
+      
+      <!-- Global frames (no prefix) -->
+      <param name="global_costmap/global_frame" value="map"/>
+      <param name="global_costmap/robot_base_frame" value="base_link"/>
+      <param name="local_costmap/global_frame" value="odom"/>
+      <param name="local_costmap/robot_base_frame" value="base_link"/>
+      
+      <!-- Use global cmd_vel -->
+      <remap from="cmd_vel" to="/cmd_vel"/>
+    </node>
+  </group>
+</launch>

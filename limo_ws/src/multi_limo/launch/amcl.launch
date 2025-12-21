@@ -1,0 +1,11 @@
+<launch>
+  <group ns="limo">
+    <node pkg="amcl" type="amcl" name="amcl">
+      <param name="odom_frame_id" value="odom"/>
+      <param name="base_frame_id" value="base_link"/>
+      <param name="global_frame_id" value="map"/>
+
+      <remap from="scan" to="/limo/scan"/>
+    </node>
+  </group>
+</launch>

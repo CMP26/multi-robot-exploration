@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Arguments -->
+  <arg name="robot_ns" default="robot1"/>
+  <arg name="gui" default="true"/>
+  <arg name="rviz" default="true"/>
+  
+  <!-- Set simulation time -->
+  <param name="use_sim_time" value="true"/>
+  
+  <!-- Launch Gazebo with the robot -->
+  <include file="$(find multi_limo)/launch/robot.launch">
+    <arg name="robot_ns" value="$(arg robot_ns)"/>
+    <arg name="gui" value="$(arg gui)"/>
+  </include>
+  
+  <!-- Wait for Gazebo to fully start -->
+  <arg name="wait_time" default="3.0"/>
+  
+  <!-- Launch GMapping SLAM -->
+  <include file="$(find multi_limo)/launch/gmapping.launch">
+    <arg name="robot_ns" value="$(arg robot_ns)"/>
+  </include>
+  
+  <!-- Launch move_base for navigation -->
+  <include file="$(find multi_limo)/launch/move_base.launch">
+    <arg name="robot_ns" value="$(arg robot_ns)"/>
+  </include>
+  
+  <!-- Launch exploration -->
+  <include file="$(find multi_limo)/launch/explore.launch">
+    <arg name="robot_ns" value="$(arg robot_ns)"/>
+  </include>
+  
+  <!-- Launch RViz -->
+  <group if="$(arg rviz)">
+    <node pkg="rviz" type="rviz" name="rviz" 
+          args="-d $(find multi_limo)/config/single_robot.rviz"
+          output="screen"/>
+  </group>
+
+</launch>

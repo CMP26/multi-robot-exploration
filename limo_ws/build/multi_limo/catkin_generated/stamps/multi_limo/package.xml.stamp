@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>multi_limo</name>
+  <version>0.0.0</version>
+  <description>Multiple LIMO robot simulation in house environment</description>
+
+  <maintainer email="ali@todo.todo">ali</maintainer>
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  
+  <!-- Required ROS1 dependencies -->
+  <depend>roscpp</depend>
+  <depend>rospy</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>visualization_msgs</depend>
+  <depend>tf</depend>
+  <depend>gazebo_ros</depend>
+  <depend>cv_bridge</depend>
+  <depend>image_transport</depend>
+  <depend>robot_state_publisher</depend>
+  <depend>controller_manager</depend>
+  <depend>joint_state_controller</depend>
+  <depend>diff_drive_controller</depend>
+  <depend>xacro</depend>
+  
+  <!-- LIMO specific - assuming these are ROS1 packages -->
+  <exec_depend>limo_description</exec_depend>
+  <exec_depend>limo_gazebo_sim</exec_depend>
+</package>

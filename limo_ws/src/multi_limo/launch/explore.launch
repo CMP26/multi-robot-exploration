@@ -1,0 +1,14 @@
+<launch>
+  <arg name="robot_ns" default="robot1"/>
+  
+  <group ns="$(arg robot_ns)">
+    <node pkg="explore_lite" type="explore" name="explore" output="screen">
+      <param name="robot_base_frame" value="base_link"/>
+      <param name="costmap_topic" value="map"/>
+      <param name="costmap_updates_topic" value="map_updates"/>
+      <param name="visualize" value="true"/>
+      
+      <remap from="map" to="/$(arg robot_ns)/map"/>
+    </node>
+  </group>
+</launch>
