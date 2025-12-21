@@ -1,0 +1,8 @@
+digraph G {
+"base_footprint" -> "base_link"[label="Broadcaster: /robot3/robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 \nBuffer length: 0.000 sec\n"];
+"base_link" -> "depth_camera_link"[label="Broadcaster: /robot3/robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 \nBuffer length: 0.000 sec\n"];
+"depth_camera_link" -> "depth_link"[label="Broadcaster: /robot3/robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 \nBuffer length: 0.000 sec\n"];
+"base_link" -> "imu_link"[label="Broadcaster: /robot3/robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 \nBuffer length: 0.000 sec\n"];
+"base_link" -> "inertial_link"[label="Broadcaster: /robot3/robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 \nBuffer length: 0.000 sec\n"];
+"base_link" -> "laser_link"[label="Broadcaster: /robot3/robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 \nBuffer length: 0.000 sec\n"];
+}

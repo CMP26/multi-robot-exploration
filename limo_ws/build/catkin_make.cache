@@ -1,2 +1,0 @@
-limo_cobot_sim/limo_cobot_moveit:limo_cobot_sim/limo_mycobot/limo/limo_description:limo_cobot_sim/limo_mycobot/limo/limo_gazebo_sim:limo_cobot_sim/limo_mycobot/mycobot_description:multi_limo
--DCATKIN_DEVEL_PREFIX=/root/ros_ws/multi-robot-exploration/limo_ws/devel -DCMAKE_INSTALL_PREFIX=/root/ros_ws/multi-robot-exploration/limo_ws/install -G Unix Makefiles
