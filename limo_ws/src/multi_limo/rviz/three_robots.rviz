@@ -1,87 +1,523 @@
 Panels:
   - Class: rviz/Displays
+    Help Height: 70
     Name: Displays
-
+    Property Tree Widget:
+      Expanded:
+        - /Map1
+        - /Map2
+        - /Map3
+        - /Map4
+      Splitter Ratio: 0.5
+    Tree Height: 795
+Preferences:
+  PromptSaveOnExit: true
+Toolbars:
+  toolButtonStyle: 2
 Visualization Manager:
   Class: ""
   Displays:
-    # --- Grid
-    - Class: rviz/Grid
-      Name: Grid
-      Enabled: true
-      Reference Frame: world
-      Plane: XY
+    - Alpha: 0.5
       Cell Size: 0.5
+      Class: rviz/Grid
       Color: 160; 160; 164
-      
-    # --- TF Frames (shows all robots' frames)
+      Enabled: true
+      Line Style:
+        Line Width: 0.029999999329447746
+        Value: Lines
+      Name: Grid
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 10
+      Reference Frame: world
+      Value: true
     - Class: rviz/TF
+      Enabled: true
+      Filter (blacklist): ""
+      Filter (whitelist): ""
+      Frame Timeout: 15
+      Frames:
+        All Enabled: true
+        robot1/base_footprint:
+          Value: true
+        robot1/base_link:
+          Value: true
+        robot1/depth_camera_depth_link:
+          Value: true
+        robot1/depth_camera_link:
+          Value: true
+        robot1/imu_link:
+          Value: true
+        robot1/inertial_link:
+          Value: true
+        robot1/laser_link:
+          Value: true
+        robot1/map:
+          Value: true
+        robot1/odom:
+          Value: true
+        robot2/base_footprint:
+          Value: true
+        robot2/base_link:
+          Value: true
+        robot2/depth_camera_depth_link:
+          Value: true
+        robot2/depth_camera_link:
+          Value: true
+        robot2/imu_link:
+          Value: true
+        robot2/inertial_link:
+          Value: true
+        robot2/laser_link:
+          Value: true
+        robot2/map:
+          Value: true
+        robot2/odom:
+          Value: true
+        robot3/base_footprint:
+          Value: true
+        robot3/base_link:
+          Value: true
+        robot3/depth_camera_depth_link:
+          Value: true
+        robot3/depth_camera_link:
+          Value: true
+        robot3/imu_link:
+          Value: true
+        robot3/inertial_link:
+          Value: true
+        robot3/laser_link:
+          Value: true
+        robot3/map:
+          Value: true
+        robot3/odom:
+          Value: true
+        world:
+          Value: true
+      Marker Alpha: 1
+      Marker Scale: 0.30000001192092896
       Name: TF Frames
-      Enabled: true
-      Marker Scale: 0.3
-      Show Names: true
-      Show Axes: true
       Show Arrows: true
-      
-    # --- Robot 1
-    - Class: rviz/RobotModel
+      Show Axes: true
+      Show Names: true
+      Tree:
+        robot1/base_footprint:
+          {}
+        robot1/map:
+          robot1/odom:
+            robot1/base_link:
+              robot1/depth_camera_link:
+                robot1/depth_camera_depth_link:
+                  {}
+              robot1/imu_link:
+                {}
+              robot1/inertial_link:
+                {}
+              robot1/laser_link:
+                {}
+        robot2/base_footprint:
+          {}
+        robot2/map:
+          robot2/odom:
+            robot2/base_link:
+              robot2/depth_camera_link:
+                robot2/depth_camera_depth_link:
+                  {}
+              robot2/imu_link:
+                {}
+              robot2/inertial_link:
+                {}
+              robot2/laser_link:
+                {}
+        robot3/base_footprint:
+          {}
+        robot3/map:
+          robot3/odom:
+            robot3/base_link:
+              robot3/depth_camera_link:
+                robot3/depth_camera_depth_link:
+                  {}
+              robot3/imu_link:
+                {}
+              robot3/inertial_link:
+                {}
+              robot3/laser_link:
+                {}
+        world:
+          {}
+      Update Interval: 0
+      Value: true
+    - Alpha: 1
+      Class: rviz/RobotModel
+      Collision Enabled: false
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        robot1/base_footprint:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        robot1/base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        robot1/depth_camera_depth_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        robot1/depth_camera_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        robot1/front_left_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        robot1/front_right_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        robot1/imu_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        robot1/inertial_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        robot1/laser_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        robot1/rear_left_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        robot1/rear_right_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
       Name: Robot1 Model
-      Enabled: true
       Robot Description: /robot1/robot_description
+      TF Prefix: ""
+      Update Interval: 0
+      Value: true
       Visual Enabled: true
-      Collision Enabled: false
-      Alpha: 1.0
-      
-    - Class: rviz/LaserScan
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/LaserScan
+      Color: 255; 255; 255
+      Color Transformer: Intensity
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Min Color: 0; 0; 0
       Name: Robot1 Laser
-      Enabled: true
+      Position Transformer: XYZ
+      Queue Size: 5
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.05000000074505806
+      Style: Flat Squares
       Topic: /robot1/scan
-      Size (m): 0.05
-      Color Transformer: Intensity
-      Queue Size: 5
-      Decay Time: 0
-      
-    # --- Robot 2
-    - Class: rviz/RobotModel
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
+    - Alpha: 1
+      Class: rviz/RobotModel
+      Collision Enabled: false
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        robot2/base_footprint:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        robot2/base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        robot2/depth_camera_depth_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        robot2/depth_camera_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        robot2/front_left_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        robot2/front_right_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        robot2/imu_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        robot2/inertial_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        robot2/laser_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        robot2/rear_left_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        robot2/rear_right_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
       Name: Robot2 Model
-      Enabled: true
       Robot Description: /robot2/robot_description
+      TF Prefix: ""
+      Update Interval: 0
+      Value: true
       Visual Enabled: true
-      Collision Enabled: false
-      Alpha: 1.0
-      
-    - Class: rviz/LaserScan
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/LaserScan
+      Color: 255; 255; 255
+      Color Transformer: Intensity
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Min Color: 0; 0; 0
       Name: Robot2 Laser
-      Enabled: true
+      Position Transformer: XYZ
+      Queue Size: 5
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.05000000074505806
+      Style: Flat Squares
       Topic: /robot2/scan
-      Size (m): 0.05
-      Color Transformer: Intensity
-      Queue Size: 5
-      Decay Time: 0
-      
-    # --- Robot 3
-    - Class: rviz/RobotModel
-      Name: Robot3 Model
-      Enabled: true
-      Robot Description: /robot3/robot_description
-      Visual Enabled: true
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
+    - Alpha: 1
+      Class: rviz/RobotModel
       Collision Enabled: false
-      Alpha: 1.0
-      
-    - Class: rviz/LaserScan
-      Name: Robot3 Laser
       Enabled: true
-      Topic: /robot3/scan
-      Size (m): 0.05
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        robot3/base_footprint:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        robot3/base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        robot3/depth_camera_depth_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        robot3/depth_camera_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        robot3/front_left_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        robot3/front_right_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        robot3/imu_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        robot3/inertial_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        robot3/laser_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        robot3/rear_left_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        robot3/rear_right_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+      Name: Robot3 Model
+      Robot Description: /robot3/robot_description
+      TF Prefix: ""
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/LaserScan
+      Color: 255; 255; 255
       Color Transformer: Intensity
-      Queue Size: 5
       Decay Time: 0
-
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Min Color: 0; 0; 0
+      Name: Robot3 Laser
+      Position Transformer: XYZ
+      Queue Size: 5
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.05000000074505806
+      Style: Flat Squares
+      Topic: /robot3/scan
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
+    - Alpha: 0.699999988079071
+      Class: rviz/Map
+      Color Scheme: map
+      Draw Behind: false
+      Enabled: true
+      Name: Map
+      Topic: /robot1/map
+      Unreliable: false
+      Use Timestamp: false
+      Value: true
+    - Alpha: 0.699999988079071
+      Class: rviz/Map
+      Color Scheme: map
+      Draw Behind: false
+      Enabled: true
+      Name: Map
+      Topic: /robot2/map
+      Unreliable: false
+      Use Timestamp: false
+      Value: true
+    - Alpha: 0.699999988079071
+      Class: rviz/Map
+      Color Scheme: map
+      Draw Behind: false
+      Enabled: true
+      Name: Map
+      Topic: /robot3/map
+      Unreliable: false
+      Use Timestamp: false
+      Value: true
+    - Alpha: 0.699999988079071
+      Class: rviz/Map
+      Color Scheme: map
+      Draw Behind: false
+      Enabled: true
+      Name: Map
+      Topic: /merged_map
+      Unreliable: false
+      Use Timestamp: false
+      Value: true
+  Enabled: true
   Global Options:
-    Fixed Frame: world
     Background Color: 0; 0; 0
+    Default Light: true
+    Fixed Frame: world
     Frame Rate: 30
-
+  Name: root
+  Tools: ~
+  Value: true
+  Views:
+    Current:
+      Class: rviz/Orbit
+      Distance: 10
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.05999999865889549
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Field of View: 0.7853981852531433
+      Focal Point:
+        X: 0
+        Y: 0
+        Z: 0
+      Focal Shape Fixed Size: true
+      Focal Shape Size: 0.05000000074505806
+      Invert Z Axis: false
+      Name: Current View
+      Near Clip Distance: 0.009999999776482582
+      Pitch: 0.7853981852531433
+      Target Frame: <Fixed Frame>
+      Yaw: 0.7853981852531433
+    Saved: ~
 Window Geometry:
+  Displays:
+    collapsed: false
+  Height: 1016
+  Hide Left Dock: false
+  Hide Right Dock: false
+  QMainWindow State: 000000ff00000000fd0000000100000000000001560000039efc0200000001fb000000100044006900730070006c006100790073010000003d0000039e000000c900ffffff000006240000039e00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Width: 1920
-  Height: 1080
+  X: 0
+  Y: 27

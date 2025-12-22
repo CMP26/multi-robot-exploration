@@ -1,0 +1,249 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="gui" default="true"/>
+  <arg name="world_file" default="$(find multi_limo)/worlds/house.world"/>
+  
+  <!-- Initial poses for each robot (you can adjust these) -->
+  <arg name="robot1_x" default="-6.0"/>
+  <arg name="robot1_y" default="2.0"/>
+  <arg name="robot1_z" default="0.2"/>
+  <arg name="robot1_yaw" default="0.0"/>
+  
+  <arg name="robot2_x" default="0.0"/>
+  <arg name="robot2_y" default="-2.0"/>
+  <arg name="robot2_z" default="0.2"/>
+  <arg name="robot2_yaw" default="1.57"/>
+  
+  <arg name="robot3_x" default="7.0"/>
+  <arg name="robot3_y" default="-2.0"/>
+  <arg name="robot3_z" default="0.2"/>
+  <arg name="robot3_yaw" default="-1.57"/>
+  
+  <env name="GAZEBO_GRAPHICS_QUALITY" value="0"/>
+  <env name="LIBGL_ALWAYS_SOFTWARE" value="1"/>
+  
+  <!-- Launch Gazebo with custom world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(arg world_file)"/>
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="paused" value="false"/>
+  </include>
+
+  <!-- Static transforms connecting all robots to world frame -->
+  <node pkg="tf" type="static_transform_publisher" name="world_to_robot1_odom" 
+        args="$(arg robot1_x) $(arg robot1_y) 0 $(arg robot1_yaw) 0 0 world robot1/odom 100"/>
+  
+  <node pkg="tf" type="static_transform_publisher" name="world_to_robot2_odom" 
+        args="$(arg robot2_x) $(arg robot2_y) 0 $(arg robot2_yaw) 0 0 world robot2/odom 100"/>
+  
+  <node pkg="tf" type="static_transform_publisher" name="world_to_robot3_odom" 
+        args="$(arg robot3_x) $(arg robot3_y) 0 $(arg robot3_yaw) 0 0 world robot3/odom 100"/>
+
+  <!-- robot1 -->
+  <group ns="robot1">
+    <param name="robot_description"
+           command="$(find xacro)/xacro '$(find limo_description)/urdf/limo_four_diff.xacro' robot_namespace:=robot1" />
+    
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"
+          args="-urdf -model robot1 -param robot_description -x $(arg robot1_x) -y $(arg robot1_y) -z $(arg robot1_z) -Y $(arg robot1_yaw)"/>
+    
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+      <param name="publish_frequency" value="50.0"/>
+    </node>
+  </group>
+
+  <!-- robot2 -->
+  <group ns="robot2">
+    <param name="robot_description"
+           command="$(find xacro)/xacro '$(find limo_description)/urdf/limo_four_diff.xacro' robot_namespace:=robot2" />
+    
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"
+          args="-urdf -model robot2 -param robot_description -x $(arg robot2_x) -y $(arg robot2_y) -z $(arg robot2_z) -Y $(arg robot2_yaw)"/>
+    
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+      <param name="publish_frequency" value="50.0"/>
+    </node>
+  </group>
+
+  <!-- robot3 -->
+  <group ns="robot3">
+    <param name="robot_description"
+           command="$(find xacro)/xacro '$(find limo_description)/urdf/limo_four_diff.xacro' robot_namespace:=robot3" />
+    
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"
+          args="-urdf -model robot3 -param robot_description -x $(arg robot3_x) -y $(arg robot3_y) -z $(arg robot3_z) -Y $(arg robot3_yaw)"/>
+    
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+      <param name="publish_frequency" value="50.0"/>
+    </node>
+  </group>
+
+
+  <!-- SLAM Gmapping for Robot 1 -->
+  <group ns="robot1">
+    <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
+      <!-- <remap from="scan" to="/robot1/scan"/>
+      <remap from="odom" to="/robot1/odom"/> -->
+      <param name="map_frame" value="robot1/map"/>
+      <param name="odom_frame" value="robot1/odom"/>
+      <param name="base_frame" value="robot1/base_link"/>
+      <param name="map_update_interval" value="2.0"/>
+      
+      <!-- Sensor parameters -->
+      <param name="maxUrange" value="11.5"/>
+      <param name="maxRange" value="12.0"/>
+      <param name="sigma" value="0.05"/>
+      <param name="kernelSize" value="1"/>
+      <param name="lstep" value="0.05"/>
+      <param name="astep" value="0.05"/>
+      <param name="iterations" value="5"/>
+      <param name="lsigma" value="0.075"/>
+      <param name="ogain" value="3.0"/>
+      <param name="lskip" value="0"/>
+      
+      <!-- Motion model parameters (noisy) -->
+      <param name="srr" value="0.01"/>
+      <param name="srt" value="0.02"/>
+      <param name="str" value="0.01"/>
+      <param name="stt" value="0.02"/>
+      
+      <!-- Map parameters -->
+      <param name="linearUpdate" value="0.2"/>
+      <param name="angularUpdate" value="0.1"/>
+      <param name="temporalUpdate" value="2.0"/>
+      <param name="resampleThreshold" value="0.5"/>
+      <param name="particles" value="30"/>
+      <param name="xmin" value="-50.0"/>
+      <param name="ymin" value="-50.0"/>
+      <param name="xmax" value="50.0"/>
+      <param name="ymax" value="50.0"/>
+      <param name="delta" value="0.05"/>
+      <param name="llsamplerange" value="0.01"/>
+      <param name="llsamplestep" value="0.01"/>
+      <param name="lasamplerange" value="0.005"/>
+      <param name="lasamplestep" value="0.005"/>
+    </node>
+  </group>
+
+  <!-- SLAM Gmapping for Robot 2 -->
+  <group ns="robot2">
+    <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
+      <!-- <remap from="scan" to="/robot2/scan"/>
+      <remap from="odom" to="/robot2/odom"/> -->
+      <param name="map_frame" value="robot2/map"/>
+      <param name="odom_frame" value="robot2/odom"/>
+      <param name="base_frame" value="robot2/base_link"/>
+      <param name="map_update_interval" value="2.0"/>
+      
+      <param name="maxUrange" value="11.5"/>
+      <param name="maxRange" value="12.0"/>
+      <param name="sigma" value="0.05"/>
+      <param name="kernelSize" value="1"/>
+      <param name="lstep" value="0.05"/>
+      <param name="astep" value="0.05"/>
+      <param name="iterations" value="5"/>
+      <param name="lsigma" value="0.075"/>
+      <param name="ogain" value="3.0"/>
+      <param name="lskip" value="0"/>
+      
+      <param name="srr" value="0.01"/>
+      <param name="srt" value="0.02"/>
+      <param name="str" value="0.01"/>
+      <param name="stt" value="0.02"/>
+      
+      <param name="linearUpdate" value="0.2"/>
+      <param name="angularUpdate" value="0.1"/>
+      <param name="temporalUpdate" value="2.0"/>
+      <param name="resampleThreshold" value="0.5"/>
+      <param name="particles" value="30"/>
+      <param name="xmin" value="-50.0"/>
+      <param name="ymin" value="-50.0"/>
+      <param name="xmax" value="50.0"/>
+      <param name="ymax" value="50.0"/>
+      <param name="delta" value="0.05"/>
+      <param name="llsamplerange" value="0.01"/>
+      <param name="llsamplestep" value="0.01"/>
+      <param name="lasamplerange" value="0.005"/>
+      <param name="lasamplestep" value="0.005"/>
+    </node>
+  </group>
+
+  <!-- SLAM Gmapping for Robot 3 -->
+  <group ns="robot3">
+    <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
+      <!-- <remap from="scan" to="/robot3/scan"/>
+      <remap from="odom" to="/robot3/odom"/> -->
+      <param name="map_frame" value="robot3/map"/>
+      <param name="odom_frame" value="robot3/odom"/>
+      <param name="base_frame" value="robot3/base_link"/>
+      <param name="map_update_interval" value="2.0"/>
+      
+      <param name="maxUrange" value="11.5"/>
+      <param name="maxRange" value="12.0"/>
+      <param name="sigma" value="0.05"/>
+      <param name="kernelSize" value="1"/>
+      <param name="lstep" value="0.05"/>
+      <param name="astep" value="0.05"/>
+      <param name="iterations" value="5"/>
+      <param name="lsigma" value="0.075"/>
+      <param name="ogain" value="3.0"/>
+      <param name="lskip" value="0"/>
+      
+      <param name="srr" value="0.01"/>
+      <param name="srt" value="0.02"/>
+      <param name="str" value="0.01"/>
+      <param name="stt" value="0.02"/>
+      
+      <param name="linearUpdate" value="0.2"/>
+      <param name="angularUpdate" value="0.1"/>
+      <param name="temporalUpdate" value="2.0"/>
+      <param name="resampleThreshold" value="0.5"/>
+      <param name="particles" value="30"/>
+      <param name="xmin" value="-50.0"/>
+      <param name="ymin" value="-50.0"/>
+      <param name="xmax" value="50.0"/>
+      <param name="ymax" value="50.0"/>
+      <param name="delta" value="0.05"/>
+      <param name="llsamplerange" value="0.01"/>
+      <param name="llsamplestep" value="0.01"/>
+      <param name="lasamplerange" value="0.005"/>
+      <param name="lasamplestep" value="0.005"/>
+    </node>
+  </group>
+
+  <!-- Map Merger Node -->
+  <node pkg="multirobot_map_merge" type="map_merge" name="map_merge" output="screen">
+    <param name="robot_namespace" value=""/>
+    <param name="merged_map_topic" value="merged_map"/>
+    <param name="world_frame" value="world"/>
+    <param name="known_init_poses" value="true"/>
+    <param name="merging_rate" value="2.0"/>
+    <param name="discovery_rate" value="0.1"/>
+    <param name="estimation_rate" value="0.1"/>
+    <param name="estimation_confidence" value="1.0"/>
+    
+    <!-- Known initial poses -->
+    <param name="robot1/map_topic" value="/robot1/map"/>
+    <param name="robot1/init_pose_x" value="$(arg robot1_x)"/>
+    <param name="robot1/init_pose_y" value="$(arg robot1_y)"/>
+    <param name="robot1/init_pose_z" value="0.0"/>
+    <param name="robot1/init_pose_yaw" value="$(arg robot1_yaw)"/>
+    
+    <param name="robot2/map_topic" value="/robot2/map"/>
+    <param name="robot2/init_pose_x" value="$(arg robot2_x)"/>
+    <param name="robot2/init_pose_y" value="$(arg robot2_y)"/>
+    <param name="robot2/init_pose_z" value="0.0"/>
+    <param name="robot2/init_pose_yaw" value="$(arg robot2_yaw)"/>
+    
+    <param name="robot3/map_topic" value="/robot3/map"/>
+    <param name="robot3/init_pose_x" value="$(arg robot3_x)"/>
+    <param name="robot3/init_pose_y" value="$(arg robot3_y)"/>
+    <param name="robot3/init_pose_z" value="0.0"/>
+    <param name="robot3/init_pose_yaw" value="$(arg robot3_yaw)"/>
+  </node>
+
+  <!-- RViz for visualization -->
+  <node pkg="rviz" type="rviz" name="rviz" 
+        args="-d $(find multi_limo)/rviz/three_robots.rviz" required="false"/>
+
+</launch>

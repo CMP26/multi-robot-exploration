@@ -1,13 +1,55 @@
+<?xml version="1.0"?>
 <launch>
+  <!-- 
+    Map Merging Launch File - Corrected Version
+    Parameters are set in each robot's namespace as expected by multirobot_map_merge
+  -->
 
-  <node pkg="multirobot_map_merge" type="map_merge" name="map_merge">
-    <param name="robot_map_topic" value="map"/>
-    <param name="world_frame" value="map"/>
+  <!-- Set initial pose parameters in robot1 namespace -->
+  <group ns="robot1">
+    <param name="map_merge/init_pose_x" value="-6.0"/>
+    <param name="map_merge/init_pose_y" value="2.0"/>
+    <param name="map_merge/init_pose_z" value="0.0"/>
+    <param name="map_merge/init_pose_yaw" value="0.0"/>
+  </group>
+  
+  <!-- Set initial pose parameters in robot2 namespace -->
+  <group ns="robot2">
+    <param name="map_merge/init_pose_x" value="0.0"/>
+    <param name="map_merge/init_pose_y" value="-2.0"/>
+    <param name="map_merge/init_pose_z" value="0.0"/>
+    <param name="map_merge/init_pose_yaw" value="1.57"/>
+  </group>
+  
+  <!-- Set initial pose parameters in robot3 namespace -->
+  <group ns="robot3">
+    <param name="map_merge/init_pose_x" value="7.0"/>
+    <param name="map_merge/init_pose_y" value="-2.0"/>
+    <param name="map_merge/init_pose_z" value="0.0"/>
+    <param name="map_merge/init_pose_yaw" value="-1.57"/>
+  </group>
+
+  <!-- Map Merge Node -->
+  <node pkg="multirobot_map_merge" type="map_merge" name="map_merge" output="screen">
+    
+    <!-- Basic settings -->
+    <param name="world_frame" value="world"/>
+    <param name="merged_map_topic" value="merged_map"/>
     <param name="known_init_poses" value="true"/>
-    <param name="merging_rate" value="1.0"/>
-    <rosparam param="robot_namespaces">
-      [robot1, robot2, robot3]
-    </rosparam>
+    <param name="merging_rate" value="2.0"/>
+    <param name="discovery_rate" value="0.05"/>
+    <param name="estimation_rate" value="0.5"/>
+    <param name="estimation_confidence" value="1.0"/>
+    
+    <!-- Define robot namespaces -->
+    <rosparam param="robot_namespace">["robot1", "robot2", "robot3"]</rosparam>
+    
+    <!-- Define map topics for each robot -->
+    <rosparam param="robot_map_topic">["/robot1/map", "/robot2/map", "/robot3/map"]</rosparam>
+    
+    <!-- Define map update topics for each robot -->
+    <rosparam param="robot_map_updates_topic">["/robot1/map_updates", "/robot2/map_updates", "/robot3/map_updates"]</rosparam>
+    
   </node>
 
 </launch>
