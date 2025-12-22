@@ -1,0 +1,42 @@
+Panels:
+  - Class: rviz/Displays
+    Name: Displays
+
+Visualization Manager:
+  Global Options:
+    Fixed Frame: odom
+    Background Color: 0; 0; 0
+
+  Displays:
+
+    # --- Grid (environment floor)
+    - Class: rviz/Grid
+      Name: Grid
+      Enabled: true
+      Reference Frame: odom
+      Plane: XY
+      Cell Size: 0.5
+
+    # --- TF Frames
+    - Class: rviz/TF
+      Name: TF Frames
+      Enabled: true
+      Marker Scale: 0.5
+
+    # --- Robot Model
+    - Class: rviz/RobotModel
+      Name: RobotModel
+      Enabled: true
+      Robot Description: robot1/robot_description
+      Visual Enabled: true
+      Collision Enabled: false
+
+    # --- LaserScan
+    - Class: rviz/LaserScan
+      Name: LaserScan
+      Enabled: true
+      Topic: /robot1/scan
+      Size (m): 0.05
+      Color Transformer: Intensity
+      Queue Size: 5
+

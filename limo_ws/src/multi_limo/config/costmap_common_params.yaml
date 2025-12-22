@@ -1,0 +1,17 @@
+transform_tolerance: 1.0
+
+footprint: [[-0.15, -0.12], [-0.15, 0.12], [0.15, 0.12], [0.15, -0.12]]
+#robot_radius: 0.17
+
+map_type: voxel
+
+obstacle_layer:
+  obstacle_range: 5.0
+  raytrace_range: 6.0
+  observation_sources: scan
+  scan: {data_type: LaserScan, topic: scan, marking: true, clearing: true}
+  footprint_padding: 0.1
+
+inflation_layer:
+  inflation_radius: 0.25
+  cost_scaling_factor: 8.0

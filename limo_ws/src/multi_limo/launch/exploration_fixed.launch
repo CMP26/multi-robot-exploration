@@ -1,0 +1,266 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- 
+    Fixed Exploration Launch File
+    Includes TF bridge to connect odom -> base_footprint
+  -->
+
+  <!-- Start TF Odom Bridge -->
+  <node pkg="multi_limo" type="tf_odom_bridge.py" name="tf_odom_bridge" output="screen"/>
+
+  <!-- Robot 1 Exploration -->
+  <group ns="robot1">
+    <node pkg="move_base" type="move_base" name="move_base" output="screen">
+      <remap from="cmd_vel" to="/robot1/cmd_vel"/>
+      <remap from="odom" to="/robot1/odom"/>
+      <remap from="scan" to="/robot1/scan"/>
+      
+      <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS"/>
+      <param name="controller_frequency" value="10.0"/>
+      
+      <!-- Global Costmap - Rolling Window in ODOM frame -->
+      <param name="global_costmap/global_frame" value="robot1/odom"/>
+      <param name="global_costmap/robot_base_frame" value="robot1/base_footprint"/>
+      <param name="global_costmap/update_frequency" value="5.0"/>
+      <param name="global_costmap/publish_frequency" value="2.0"/>
+      <param name="global_costmap/rolling_window" value="true"/>
+      <param name="global_costmap/width" value="30.0"/>
+      <param name="global_costmap/height" value="30.0"/>
+      <param name="global_costmap/resolution" value="0.05"/>
+      <param name="global_costmap/transform_tolerance" value="1.0"/>
+      
+      <rosparam param="global_costmap/plugins">
+        - {name: obstacles, type: "costmap_2d::ObstacleLayer"}
+        - {name: inflation, type: "costmap_2d::InflationLayer"}
+      </rosparam>
+      
+      <param name="global_costmap/obstacles/observation_sources" value="scan"/>
+      <param name="global_costmap/obstacles/scan/topic" value="/robot1/scan"/>
+      <param name="global_costmap/obstacles/scan/sensor_frame" value="robot1/laser_link"/>
+      <param name="global_costmap/obstacles/scan/data_type" value="LaserScan"/>
+      <param name="global_costmap/obstacles/scan/marking" value="true"/>
+      <param name="global_costmap/obstacles/scan/clearing" value="true"/>
+      <param name="global_costmap/obstacles/obstacle_range" value="10.0"/>
+      <param name="global_costmap/obstacles/raytrace_range" value="12.0"/>
+      
+      <param name="global_costmap/inflation/inflation_radius" value="0.5"/>
+      <param name="global_costmap/inflation/cost_scaling_factor" value="5.0"/>
+      
+      <!-- Local Costmap -->
+      <param name="local_costmap/global_frame" value="robot1/odom"/>
+      <param name="local_costmap/robot_base_frame" value="robot1/base_footprint"/>
+      <param name="local_costmap/update_frequency" value="10.0"/>
+      <param name="local_costmap/publish_frequency" value="5.0"/>
+      <param name="local_costmap/rolling_window" value="true"/>
+      <param name="local_costmap/width" value="6.0"/>
+      <param name="local_costmap/height" value="6.0"/>
+      <param name="local_costmap/resolution" value="0.05"/>
+      <param name="local_costmap/transform_tolerance" value="1.0"/>
+      
+      <rosparam param="local_costmap/plugins">
+        - {name: obstacles, type: "costmap_2d::ObstacleLayer"}
+        - {name: inflation, type: "costmap_2d::InflationLayer"}
+      </rosparam>
+      
+      <param name="local_costmap/obstacles/observation_sources" value="scan"/>
+      <param name="local_costmap/obstacles/scan/topic" value="/robot1/scan"/>
+      <param name="local_costmap/obstacles/scan/sensor_frame" value="robot1/laser_link"/>
+      <param name="local_costmap/obstacles/scan/data_type" value="LaserScan"/>
+      <param name="local_costmap/obstacles/scan/marking" value="true"/>
+      <param name="local_costmap/obstacles/scan/clearing" value="true"/>
+      <param name="local_costmap/obstacles/obstacle_range" value="3.0"/>
+      <param name="local_costmap/obstacles/raytrace_range" value="4.0"/>
+      
+      <param name="local_costmap/inflation/inflation_radius" value="0.3"/>
+      
+      <!-- DWA Planner -->
+      <param name="DWAPlannerROS/max_vel_x" value="0.4"/>
+      <param name="DWAPlannerROS/min_vel_x" value="0.0"/>
+      <param name="DWAPlannerROS/max_vel_theta" value="1.0"/>
+      <param name="DWAPlannerROS/min_vel_theta" value="-1.0"/>
+      <param name="DWAPlannerROS/acc_lim_x" value="1.0"/>
+      <param name="DWAPlannerROS/acc_lim_theta" value="2.0"/>
+      <param name="DWAPlannerROS/xy_goal_tolerance" value="0.2"/>
+      <param name="DWAPlannerROS/yaw_goal_tolerance" value="0.2"/>
+    </node>
+    
+    <node pkg="explore_lite" type="explore" name="explore" output="screen" launch-prefix="bash -c 'sleep 5; $0 $@'">
+      <param name="robot_base_frame" value="robot1/base_footprint"/>
+      <param name="costmap_topic" value="/robot1/move_base/global_costmap/costmap"/>
+      <param name="costmap_updates_topic" value="/robot1/move_base/global_costmap/costmap_updates"/>
+      <param name="visualize" value="true"/>
+      <param name="planner_frequency" value="0.33"/>
+      <param name="progress_timeout" value="30.0"/>
+      <param name="potential_scale" value="3.0"/>
+      <param name="gain_scale" value="1.0"/>
+      <param name="min_frontier_size" value="0.5"/>
+    </node>
+  </group>
+
+  <!-- Robot 2 Exploration -->
+  <group ns="robot2">
+    <node pkg="move_base" type="move_base" name="move_base" output="screen">
+      <remap from="cmd_vel" to="/robot2/cmd_vel"/>
+      <remap from="odom" to="/robot2/odom"/>
+      <remap from="scan" to="/robot2/scan"/>
+      
+      <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS"/>
+      <param name="controller_frequency" value="10.0"/>
+      
+      <param name="global_costmap/global_frame" value="robot2/odom"/>
+      <param name="global_costmap/robot_base_frame" value="robot2/base_footprint"/>
+      <param name="global_costmap/update_frequency" value="5.0"/>
+      <param name="global_costmap/publish_frequency" value="2.0"/>
+      <param name="global_costmap/rolling_window" value="true"/>
+      <param name="global_costmap/width" value="30.0"/>
+      <param name="global_costmap/height" value="30.0"/>
+      <param name="global_costmap/resolution" value="0.05"/>
+      <param name="global_costmap/transform_tolerance" value="1.0"/>
+      
+      <rosparam param="global_costmap/plugins">
+        - {name: obstacles, type: "costmap_2d::ObstacleLayer"}
+        - {name: inflation, type: "costmap_2d::InflationLayer"}
+      </rosparam>
+      
+      <param name="global_costmap/obstacles/observation_sources" value="scan"/>
+      <param name="global_costmap/obstacles/scan/topic" value="/robot2/scan"/>
+      <param name="global_costmap/obstacles/scan/sensor_frame" value="robot2/laser_link"/>
+      <param name="global_costmap/obstacles/scan/data_type" value="LaserScan"/>
+      <param name="global_costmap/obstacles/scan/marking" value="true"/>
+      <param name="global_costmap/obstacles/scan/clearing" value="true"/>
+      <param name="global_costmap/obstacles/obstacle_range" value="10.0"/>
+      <param name="global_costmap/obstacles/raytrace_range" value="12.0"/>
+      <param name="global_costmap/inflation/inflation_radius" value="0.5"/>
+      
+      <param name="local_costmap/global_frame" value="robot2/odom"/>
+      <param name="local_costmap/robot_base_frame" value="robot2/base_footprint"/>
+      <param name="local_costmap/update_frequency" value="10.0"/>
+      <param name="local_costmap/publish_frequency" value="5.0"/>
+      <param name="local_costmap/rolling_window" value="true"/>
+      <param name="local_costmap/width" value="6.0"/>
+      <param name="local_costmap/height" value="6.0"/>
+      <param name="local_costmap/resolution" value="0.05"/>
+      <param name="local_costmap/transform_tolerance" value="1.0"/>
+      
+      <rosparam param="local_costmap/plugins">
+        - {name: obstacles, type: "costmap_2d::ObstacleLayer"}
+        - {name: inflation, type: "costmap_2d::InflationLayer"}
+      </rosparam>
+      
+      <param name="local_costmap/obstacles/observation_sources" value="scan"/>
+      <param name="local_costmap/obstacles/scan/topic" value="/robot2/scan"/>
+      <param name="local_costmap/obstacles/scan/sensor_frame" value="robot2/laser_link"/>
+      <param name="local_costmap/obstacles/scan/data_type" value="LaserScan"/>
+      <param name="local_costmap/obstacles/scan/marking" value="true"/>
+      <param name="local_costmap/obstacles/scan/clearing" value="true"/>
+      <param name="local_costmap/obstacles/obstacle_range" value="3.0"/>
+      <param name="local_costmap/obstacles/raytrace_range" value="4.0"/>
+      <param name="local_costmap/inflation/inflation_radius" value="0.3"/>
+      
+      <param name="DWAPlannerROS/max_vel_x" value="0.4"/>
+      <param name="DWAPlannerROS/min_vel_x" value="0.0"/>
+      <param name="DWAPlannerROS/max_vel_theta" value="1.0"/>
+      <param name="DWAPlannerROS/min_vel_theta" value="-1.0"/>
+      <param name="DWAPlannerROS/acc_lim_x" value="1.0"/>
+      <param name="DWAPlannerROS/acc_lim_theta" value="2.0"/>
+      <param name="DWAPlannerROS/xy_goal_tolerance" value="0.2"/>
+      <param name="DWAPlannerROS/yaw_goal_tolerance" value="0.2"/>
+    </node>
+    
+    <node pkg="explore_lite" type="explore" name="explore" output="screen" launch-prefix="bash -c 'sleep 5; $0 $@'">
+      <param name="robot_base_frame" value="robot2/base_footprint"/>
+      <param name="costmap_topic" value="/robot2/move_base/global_costmap/costmap"/>
+      <param name="costmap_updates_topic" value="/robot2/move_base/global_costmap/costmap_updates"/>
+      <param name="visualize" value="true"/>
+      <param name="planner_frequency" value="0.33"/>
+      <param name="progress_timeout" value="30.0"/>
+      <param name="potential_scale" value="3.0"/>
+      <param name="gain_scale" value="1.0"/>
+      <param name="min_frontier_size" value="0.5"/>
+    </node>
+  </group>
+
+  <!-- Robot 3 Exploration -->
+  <group ns="robot3">
+    <node pkg="move_base" type="move_base" name="move_base" output="screen">
+      <remap from="cmd_vel" to="/robot3/cmd_vel"/>
+      <remap from="odom" to="/robot3/odom"/>
+      <remap from="scan" to="/robot3/scan"/>
+      
+      <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS"/>
+      <param name="controller_frequency" value="10.0"/>
+      
+      <param name="global_costmap/global_frame" value="robot3/odom"/>
+      <param name="global_costmap/robot_base_frame" value="robot3/base_footprint"/>
+      <param name="global_costmap/update_frequency" value="5.0"/>
+      <param name="global_costmap/publish_frequency" value="2.0"/>
+      <param name="global_costmap/rolling_window" value="true"/>
+      <param name="global_costmap/width" value="30.0"/>
+      <param name="global_costmap/height" value="30.0"/>
+      <param name="global_costmap/resolution" value="0.05"/>
+      <param name="global_costmap/transform_tolerance" value="1.0"/>
+      
+      <rosparam param="global_costmap/plugins">
+        - {name: obstacles, type: "costmap_2d::ObstacleLayer"}
+        - {name: inflation, type: "costmap_2d::InflationLayer"}
+      </rosparam>
+      
+      <param name="global_costmap/obstacles/observation_sources" value="scan"/>
+      <param name="global_costmap/obstacles/scan/topic" value="/robot3/scan"/>
+      <param name="global_costmap/obstacles/scan/sensor_frame" value="robot3/laser_link"/>
+      <param name="global_costmap/obstacles/scan/data_type" value="LaserScan"/>
+      <param name="global_costmap/obstacles/scan/marking" value="true"/>
+      <param name="global_costmap/obstacles/scan/clearing" value="true"/>
+      <param name="global_costmap/obstacles/obstacle_range" value="10.0"/>
+      <param name="global_costmap/obstacles/raytrace_range" value="12.0"/>
+      <param name="global_costmap/inflation/inflation_radius" value="0.5"/>
+      
+      <param name="local_costmap/global_frame" value="robot3/odom"/>
+      <param name="local_costmap/robot_base_frame" value="robot3/base_footprint"/>
+      <param name="local_costmap/update_frequency" value="10.0"/>
+      <param name="local_costmap/publish_frequency" value="5.0"/>
+      <param name="local_costmap/rolling_window" value="true"/>
+      <param name="local_costmap/width" value="6.0"/>
+      <param name="local_costmap/height" value="6.0"/>
+      <param name="local_costmap/resolution" value="0.05"/>
+      <param name="local_costmap/transform_tolerance" value="1.0"/>
+      
+      <rosparam param="local_costmap/plugins">
+        - {name: obstacles, type: "costmap_2d::ObstacleLayer"}
+        - {name: inflation, type: "costmap_2d::InflationLayer"}
+      </rosparam>
+      
+      <param name="local_costmap/obstacles/observation_sources" value="scan"/>
+      <param name="local_costmap/obstacles/scan/topic" value="/robot3/scan"/>
+      <param name="local_costmap/obstacles/scan/sensor_frame" value="robot3/laser_link"/>
+      <param name="local_costmap/obstacles/scan/data_type" value="LaserScan"/>
+      <param name="local_costmap/obstacles/scan/marking" value="true"/>
+      <param name="local_costmap/obstacles/scan/clearing" value="true"/>
+      <param name="local_costmap/obstacles/obstacle_range" value="3.0"/>
+      <param name="local_costmap/obstacles/raytrace_range" value="4.0"/>
+      <param name="local_costmap/inflation/inflation_radius" value="0.3"/>
+      
+      <param name="DWAPlannerROS/max_vel_x" value="0.4"/>
+      <param name="DWAPlannerROS/min_vel_x" value="0.0"/>
+      <param name="DWAPlannerROS/max_vel_theta" value="1.0"/>
+      <param name="DWAPlannerROS/min_vel_theta" value="-1.0"/>
+      <param name="DWAPlannerROS/acc_lim_x" value="1.0"/>
+      <param name="DWAPlannerROS/acc_lim_theta" value="2.0"/>
+      <param name="DWAPlannerROS/xy_goal_tolerance" value="0.2"/>
+      <param name="DWAPlannerROS/yaw_goal_tolerance" value="0.2"/>
+    </node>
+    
+    <node pkg="explore_lite" type="explore" name="explore" output="screen" launch-prefix="bash -c 'sleep 5; $0 $@'">
+      <param name="robot_base_frame" value="robot3/base_footprint"/>
+      <param name="costmap_topic" value="/robot3/move_base/global_costmap/costmap"/>
+      <param name="costmap_updates_topic" value="/robot3/move_base/global_costmap/costmap_updates"/>
+      <param name="visualize" value="true"/>
+      <param name="planner_frequency" value="0.33"/>
+      <param name="progress_timeout" value="30.0"/>
+      <param name="potential_scale" value="3.0"/>
+      <param name="gain_scale" value="1.0"/>
+      <param name="min_frontier_size" value="0.5"/>
+    </node>
+  </group>
+
+</launch>

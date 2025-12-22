@@ -1,0 +1,12 @@
+maxUrange: 12.0
+maxRange: 12.0
+particles: 30
+linearUpdate: 0.5
+angularUpdate: 0.3
+temporalUpdate: 1.0
+resampleThreshold: 0.5
+delta: 0.05
+xmin: -20.0
+ymin: -20.0
+xmax: 20.0
+ymax: 20.0

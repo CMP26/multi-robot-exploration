@@ -1,0 +1,93 @@
+<launch>
+    <!-- Arguments -->
+    <!-- <arg name="scan_topic" default="scan" />
+    <arg name="cmd_vel_topic" default="cmd_vel" />
+    <arg name="odom_topic" default="odom" />
+    <arg name="base_frame" default="base_link" />
+    <arg name="odom_frame" default="odom" />
+    <arg name="map_frame" default="map" /> -->
+
+    <!-- SLAM (Slam Toolbox) -->
+    <!-- <include file="$(find multi_limo)/launch/slam_toolbox.launch">
+        <arg name="base_frame" value="$(arg base_frame)"/>
+        <arg name="odom_frame" value="$(arg odom_frame)"/>
+        <arg name="map_frame" value="$(arg map_frame)"/>
+        <arg name="scan_topic" value="$(arg scan_topic)"/>
+    </include> -->
+
+    <!-- Move Base -->
+    
+  <group ns="robot1">
+        <node pkg="move_base" type="move_base" respawn="false" name="move_base">
+            <rosparam file="$(find multi_limo)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
+            <rosparam file="$(find multi_limo)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
+            <rosparam file="$(find multi_limo)/config/local_costmap_params.yaml" command="load" />
+            <rosparam file="$(find multi_limo)/config/global_costmap_params.yaml" command="load" />
+            <rosparam file="$(find multi_limo)/config/move_base_params.yaml" command="load" />
+            <rosparam file="$(find multi_limo)/config/trajectory_planner_params.yaml" command="load" />
+            
+            <param name="global_costmap/global_frame" value="robot1/odom"/>
+            <param name="global_costmap/robot_base_frame" value="robot1/base_link"/>
+            <param name="local_costmap/global_frame" value="robot1/odom"/>
+            <param name="local_costmap/robot_base_frame" value="robot1/base_link"/>
+            <param name="DWAPlannerROS/global_frame_id" value="robot1/odom"/>
+            <rosparam param="local_costmap/plugins">
+                - {name: obstacles, type: "costmap_2d::ObstacleLayer"}
+                - {name: inflation, type: "costmap_2d::InflationLayer"}
+            </rosparam>
+            
+            <!-- Remap topics to arguments (which should be relative) -->
+            <remap from="cmd_vel" to="/robot1/cmd_vel"/>
+            <remap from="odom" to="/robot1/odom"/>
+            <remap from="scan" to="/robot1/scan"/>
+        </node>
+    
+  </group>
+
+  <!-- Robot 2 Exploration -->
+  <group ns="robot2">
+        <node pkg="move_base" type="move_base" respawn="false" name="move_base">
+            <rosparam file="$(find multi_limo)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
+            <rosparam file="$(find multi_limo)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
+            <rosparam file="$(find multi_limo)/config/local_costmap_params.yaml" command="load" />
+            <rosparam file="$(find multi_limo)/config/global_costmap_params.yaml" command="load" />
+            <rosparam file="$(find multi_limo)/config/move_base_params.yaml" command="load" />
+            <rosparam file="$(find multi_limo)/config/trajectory_planner_params.yaml" command="load" />
+            
+            <param name="global_costmap/global_frame" value="robot2/odom"/>
+            <param name="global_costmap/robot_base_frame" value="robot2/base_link"/>
+            <param name="local_costmap/global_frame" value="robot2/odom"/>
+            <param name="local_costmap/robot_base_frame" value="robot2/base_link"/>
+            <param name="DWAPlannerROS/global_frame_id" value="robot2/odom"/>
+            <!-- Remap topics to arguments (which should be relative) -->
+            <remap from="cmd_vel" to="/robot2/cmd_vel"/>
+            <remap from="odom" to="/robot2/odom"/>
+            <remap from="scan" to="/robot2/scan"/>
+        </node>
+  </group>
+
+  <!-- Robot 3 Exploration -->
+  <group ns="robot3">
+        <node pkg="move_base" type="move_base" respawn="false" name="move_base">
+            <rosparam file="$(find multi_limo)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
+            <rosparam file="$(find multi_limo)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
+            <rosparam file="$(find multi_limo)/config/local_costmap_params.yaml" command="load" />
+            <rosparam file="$(find multi_limo)/config/global_costmap_params.yaml" command="load" />
+            <rosparam file="$(find multi_limo)/config/move_base_params.yaml" command="load" />
+            <rosparam file="$(find multi_limo)/config/trajectory_planner_params.yaml" command="load" />
+            
+            <param name="global_costmap/global_frame" value="robot3/odom"/>
+            <param name="global_costmap/robot_base_frame" value="robot3/base_link"/>
+            <param name="local_costmap/global_frame" value="robot3/odom"/>
+            <param name="local_costmap/robot_base_frame" value="robot3/base_link"/>
+            <param name="DWAPlannerROS/global_frame_id" value="robot3/odom"/>
+
+            <!-- Remap topics to arguments (which should be relative) -->
+            <remap from="cmd_vel" to="/robot3/cmd_vel"/>
+            <remap from="odom" to="/robot3/odom"/>
+            <remap from="scan" to="/robot3/scan"/>
+        </node>
+    
+  </group>
+
+</launch>

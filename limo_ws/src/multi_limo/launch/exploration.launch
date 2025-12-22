@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- 
+    Multi-Robot Autonomous Exploration Launch File
+    Run this AFTER launching three_robots.launch, three_robots_mapping.launch, and map_merge.launch
+    
+    Terminal 1: roslaunch multi_limo three_robots.launch
+    Terminal 2: roslaunch multi_limo three_robots_mapping.launch
+    Terminal 3: roslaunch multi_limo map_merge.launch
+    Terminal 4: rosrun multi_limo manual_robot_mover.py (run once to build initial maps)
+    Terminal 5: roslaunch multi_limo exploration.launch
+  -->
+
+  <!-- Robot 1 Exploration -->
+  <group ns="robot1">
+    <!-- Move Base Node -->
+    <node pkg="move_base" type="move_base" name="move_base" output="screen">
+      <remap from="cmd_vel" to="/robot1/cmd_vel"/>
+      <remap from="odom" to="/robot1/odom"/>
+      <remap from="scan" to="/robot1/scan"/>
+      <remap from="map" to="/robot1/map"/>
+      
+      <!-- Load parameters -->
+      <rosparam file="$(find multi_limo)/config/costmap_common_params.yaml" command="load" ns="global_costmap"/>
+      <rosparam file="$(find multi_limo)/config/costmap_common_params.yaml" command="load" ns="local_costmap"/>
+      <rosparam file="$(find multi_limo)/config/local_costmap_params.yaml" command="load"/>
+      <rosparam file="$(find multi_limo)/config/global_costmap_params.yaml" command="load"/>
+      <rosparam file="$(find multi_limo)/config/base_local_planner_params.yaml" command="load"/>
+      
+      <!-- Frame parameters -->
+      <param name="global_costmap/robot_base_frame" value="robot1/base_link"/>
+      <param name="global_costmap/global_frame" value="robot1/map"/>
+      <param name="local_costmap/robot_base_frame" value="robot1/base_link"/>
+      <param name="local_costmap/global_frame" value="robot1/odom"/>
+      
+      <!-- Add recovery behaviors -->
+      <param name="recovery_behavior_enabled" value="true"/>
+      <param name="clearing_rotation_allowed" value="true"/>
+    </node>
+    
+    <!-- Explore Lite Node with adjusted parameters -->
+    <node pkg="explore_lite" type="explore" name="explore" output="screen">
+      <param name="robot_base_frame" value="robot1/base_link"/>
+      <param name="costmap_topic" value="/robot1/move_base/global_costmap/costmap"/>
+      <param name="costmap_updates_topic" value="/robot1/move_base/global_costmap/costmap_updates"/>
+      <param name="visualize" value="true"/>
+      <param name="planner_frequency" value="0.5"/>
+      <param name="progress_timeout" value="60.0"/>
+      <param name="potential_scale" value="3.0"/>
+      <param name="orientation_scale" value="0.0"/>
+      <param name="gain_scale" value="1.0"/>
+      <param name="transform_tolerance" value="0.5"/>
+      <param name="min_frontier_size" value="0.5"/>
+      
+      <!-- Critical: delay start to allow map to build -->
+      <param name="delay_after_stop" value="5.0"/>
+    </node>
+  </group>
+
+  <!-- Robot 2 Exploration -->
+  <group ns="robot2">
+    <!-- Move Base Node -->
+    <node pkg="move_base" type="move_base" name="move_base" output="screen">
+      <remap from="cmd_vel" to="/robot2/cmd_vel"/>
+      <remap from="odom" to="/robot2/odom"/>
+      <remap from="scan" to="/robot2/scan"/>
+      <remap from="map" to="/robot2/map"/>
+      
+      <!-- Load parameters -->
+      <rosparam file="$(find multi_limo)/config/costmap_common_params.yaml" command="load" ns="global_costmap"/>
+      <rosparam file="$(find multi_limo)/config/costmap_common_params.yaml" command="load" ns="local_costmap"/>
+      <rosparam file="$(find multi_limo)/config/local_costmap_params.yaml" command="load"/>
+      <rosparam file="$(find multi_limo)/config/global_costmap_params.yaml" command="load"/>
+      <rosparam file="$(find multi_limo)/config/base_local_planner_params.yaml" command="load"/>
+      
+      <!-- Frame parameters -->
+      <param name="global_costmap/robot_base_frame" value="robot2/base_link"/>
+      <param name="global_costmap/global_frame" value="robot2/map"/>
+      <param name="local_costmap/robot_base_frame" value="robot2/base_link"/>
+      <param name="local_costmap/global_frame" value="robot2/odom"/>
+      
+      <!-- Add recovery behaviors -->
+      <param name="recovery_behavior_enabled" value="true"/>
+      <param name="clearing_rotation_allowed" value="true"/>
+    </node>
+    
+    <!-- Explore Lite Node with adjusted parameters -->
+    <node pkg="explore_lite" type="explore" name="explore" output="screen">
+      <param name="robot_base_frame" value="robot2/base_link"/>
+      <param name="costmap_topic" value="/robot2/move_base/global_costmap/costmap"/>
+      <param name="costmap_updates_topic" value="/robot2/move_base/global_costmap/costmap_updates"/>
+      <param name="visualize" value="true"/>
+      <param name="planner_frequency" value="0.5"/>
+      <param name="progress_timeout" value="60.0"/>
+      <param name="potential_scale" value="3.0"/>
+      <param name="orientation_scale" value="0.0"/>
+      <param name="gain_scale" value="1.0"/>
+      <param name="transform_tolerance" value="0.5"/>
+      <param name="min_frontier_size" value="0.5"/>
+      
+      <!-- Critical: delay start to allow map to build -->
+      <param name="delay_after_stop" value="5.0"/>
+    </node>
+  </group>
+
+  <!-- Robot 3 Exploration -->
+  <group ns="robot3">
+    <!-- Move Base Node -->
+    <node pkg="move_base" type="move_base" name="move_base" output="screen">
+      <remap from="cmd_vel" to="/robot3/cmd_vel"/>
+      <remap from="odom" to="/robot3/odom"/>
+      <remap from="scan" to="/robot3/scan"/>
+      <remap from="map" to="/robot3/map"/>
+      
+      <!-- Load parameters -->
+      <rosparam file="$(find multi_limo)/config/costmap_common_params.yaml" command="load" ns="global_costmap"/>
+      <rosparam file="$(find multi_limo)/config/costmap_common_params.yaml" command="load" ns="local_costmap"/>
+      <rosparam file="$(find multi_limo)/config/local_costmap_params.yaml" command="load"/>
+      <rosparam file="$(find multi_limo)/config/global_costmap_params.yaml" command="load"/>
+      <rosparam file="$(find multi_limo)/config/base_local_planner_params.yaml" command="load"/>
+      
+      <!-- Frame parameters -->
+      <param name="global_costmap/robot_base_frame" value="robot3/base_link"/>
+      <param name="global_costmap/global_frame" value="robot3/map"/>
+      <param name="local_costmap/robot_base_frame" value="robot3/base_link"/>
+      <param name="local_costmap/global_frame" value="robot3/odom"/>
+      
+      <!-- Add recovery behaviors -->
+      <param name="recovery_behavior_enabled" value="true"/>
+      <param name="clearing_rotation_allowed" value="true"/>
+    </node>
+    
+    <!-- Explore Lite Node with adjusted parameters -->
+    <node pkg="explore_lite" type="explore" name="explore" output="screen">
+      <param name="robot_base_frame" value="robot3/base_link"/>
+      <param name="costmap_topic" value="/robot3/move_base/global_costmap/costmap"/>
+      <param name="costmap_updates_topic" value="/robot3/move_base/global_costmap/costmap_updates"/>
+      <param name="visualize" value="true"/>
+      <param name="planner_frequency" value="0.5"/>
+      <param name="progress_timeout" value="60.0"/>
+      <param name="potential_scale" value="3.0"/>
+      <param name="orientation_scale" value="0.0"/>
+      <param name="gain_scale" value="1.0"/>
+      <param name="transform_tolerance" value="0.5"/>
+      <param name="min_frontier_size" value="0.5"/>
+      
+      <!-- Critical: delay start to allow map to build -->
+      <param name="delay_after_stop" value="5.0"/>
+    </node>
+  </group>
+
+</launch>
