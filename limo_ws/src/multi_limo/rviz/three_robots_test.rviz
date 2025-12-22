@@ -1,0 +1,87 @@
+Panels:
+  - Class: rviz/Displays
+    Name: Displays
+
+Visualization Manager:
+  Class: ""
+  Displays:
+    # --- Grid
+    - Class: rviz/Grid
+      Name: Grid
+      Enabled: true
+      Reference Frame: world
+      Plane: XY
+      Cell Size: 0.5
+      Color: 160; 160; 164
+      
+    # --- TF Frames (shows all robots' frames)
+    - Class: rviz/TF
+      Name: TF Frames
+      Enabled: true
+      Marker Scale: 0.3
+      Show Names: true
+      Show Axes: true
+      Show Arrows: true
+      
+    # --- Robot 1
+    - Class: rviz/RobotModel
+      Name: Robot1 Model
+      Enabled: true
+      Robot Description: /robot1/robot_description
+      Visual Enabled: true
+      Collision Enabled: false
+      Alpha: 1.0
+      
+    - Class: rviz/LaserScan
+      Name: Robot1 Laser
+      Enabled: true
+      Topic: /robot1/scan
+      Size (m): 0.05
+      Color Transformer: Intensity
+      Queue Size: 5
+      Decay Time: 0
+      
+    # --- Robot 2
+    - Class: rviz/RobotModel
+      Name: Robot2 Model
+      Enabled: true
+      Robot Description: /robot2/robot_description
+      Visual Enabled: true
+      Collision Enabled: false
+      Alpha: 1.0
+      
+    - Class: rviz/LaserScan
+      Name: Robot2 Laser
+      Enabled: true
+      Topic: /robot2/scan
+      Size (m): 0.05
+      Color Transformer: Intensity
+      Queue Size: 5
+      Decay Time: 0
+      
+    # --- Robot 3
+    - Class: rviz/RobotModel
+      Name: Robot3 Model
+      Enabled: true
+      Robot Description: /robot3/robot_description
+      Visual Enabled: true
+      Collision Enabled: false
+      Alpha: 1.0
+      
+    - Class: rviz/LaserScan
+      Name: Robot3 Laser
+      Enabled: true
+      Topic: /robot3/scan
+      Size (m): 0.05
+      Color Transformer: Intensity
+      Queue Size: 5
+      Decay Time: 0
+
+  Global Options:
+    Fixed Frame: world
+    Background Color: 0; 0; 0
+    Frame Rate: 30
+
+Window Geometry:
+  Width: 1920
+  Height: 1080

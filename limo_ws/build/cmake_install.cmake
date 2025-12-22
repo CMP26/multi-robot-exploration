@@ -147,11 +147,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/build/gtest/cmake_install.cmake")
   include("/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/build/limo_ros/limo_bringup/cmake_install.cmake")
-  include("/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/build/limo_cobot_sim/limo_cobot_moveit/cmake_install.cmake")
-  include("/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/build/limo_cobot_sim/limo_mycobot/limo/limo_description/cmake_install.cmake")
-  include("/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/build/limo_ros/limo_description_real/cmake_install.cmake")
-  include("/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/build/limo_cobot_sim/limo_mycobot/mycobot_description/cmake_install.cmake")
-  include("/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/build/limo_cobot_sim/limo_mycobot/limo/limo_gazebo_sim/cmake_install.cmake")
+  include("/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/build/limo_ros/limo_description/cmake_install.cmake")
   include("/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/build/limo_ros/limo_base/cmake_install.cmake")
   include("/media/Disk_D/CUFE_CMP_2024/Fourth_year_26/first_semster/CMP4021_CR/project/multi-robot-exploration/limo_ws/build/multi_limo/cmake_install.cmake")
 
