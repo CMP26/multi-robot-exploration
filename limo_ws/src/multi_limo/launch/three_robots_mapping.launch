@@ -10,13 +10,13 @@
   <!-- Static transforms from world to each robot's map frame -->
   <!-- These use the same initial poses as in map_merge configuration -->
   <node pkg="tf" type="static_transform_publisher" name="world_to_robot1_tf" 
-        args="-6.0 2.0 0 0 0 0 1 world robot1/map 100"/>
+        args="0 0 0 0 0 0 world robot1/map 100"/>
   
   <node pkg="tf" type="static_transform_publisher" name="world_to_robot2_tf" 
-        args="0.0 -2.0 0 0 0 0.7071068 0.7071068 world robot2/map 100"/>
+        args="0 0 0 0 0 0 world robot2/map 100"/>
   
   <node pkg="tf" type="static_transform_publisher" name="world_to_robot3_tf" 
-        args="7.0 -2.0 0 0 0 -0.7071068 0.7071068 world robot3/map 100"/>
+        args="0 0 0 0 0 0 world robot3/map 100"/>
 
   <!-- Robot 1 Mapping -->
   <group ns="robot1">
